@@ -1092,14 +1092,13 @@
       function clean(value) {
         return String(value ?? "").trim();
       }
-      function formatDate(dateStr) {
+      function formatCardDate(dateStr) {
         if (!dateStr) return "";
       
         try {
           const date = new Date(dateStr);
           if (isNaN(date.getTime())) return dateStr;
       
-          // Format: "30 Aug 2026 5:00AM"
           const day = date.getDate();
           const month = date.toLocaleString("en-US", { month: "short" });
           const year = date.getFullYear();
@@ -1109,8 +1108,29 @@
           const ampm = hours >= 12 ? "PM" : "AM";
       
           hours = hours % 12;
-          hours = hours ? hours : 12;
+          hours = hours || 12;
       
+          return `${day} ${month} ${year} ${hours}:${minutes}${ampm}`;
+        } catch {
+          return dateStr;
+        }
+      }
+      function formatDate(dateStr) {
+        if (!dateStr) return "";
+        try {
+          const date = new Date(dateStr);
+          if (isNaN(date)) return dateStr;
+          // Format: "10 August 2026 10:30AM"
+          const day = date.getDate();
+          const month = date.toLocaleString("en-US", { month: "long" });
+          const year = date.getFullYear();
+
+          let hours = date.getHours();
+          const minutes = date.getMinutes().toString().padStart(2, "0");
+          const ampm = hours >= 12 ? "PM" : "AM";
+          hours = hours % 12;
+          hours = hours ? hours : 12; // the hour '0' should be '12'
+
           return `${day} ${month} ${year} ${hours}:${minutes}${ampm}`;
         } catch {
           return dateStr;
@@ -1761,8 +1781,9 @@
             <div class="country"> <span class="flag">${getFlag(country)}</span> ${esc(country)}</div>
           </div>
           <div class="guest-date">
-            ${date ? `<div class="date">${esc(formatDate(date))}</div>` : ""} 
+            ${date ? `<div class="date">${esc(formatCardDate(date))}</div>` : ""} 
           </div>
+          
           <div class="tree-info">
             <div class="tree-name">${esc(tree)}</div>
             <div class="tree-number">${count || 1} ${count === 1 ? "tree" : "trees"}🌱</div>
