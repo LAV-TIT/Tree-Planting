@@ -1049,69 +1049,70 @@
         <div class="label">Stay Locations</div>
       </div> -->
       </section>
-      <!-- Property Summary -->
+      <!--Summary -->
       <section class="property-summary" aria-label="Tree planting summary by property">
         <div class="property-summary-grid" id="propertySummary">
           <div class="property-loading">
             🌿 Loading property totals…
           </div>
         </div>
+        <div class="controls">
+            <div class="field">
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search guest, country, tree or story…"
+                autocomplete="off"
+              />
+            </div>
+    
+            <div class="field">
+              <select id="locationFilter">
+                <option value="">All locations</option>
+              </select>
+            </div>
+    
+            <div class="field">
+              <select id="countryFilter">
+                <option value="">All countries</option>
+              </select>
+            </div>
+    
+            <div class="field date-filter-field">
+              <span class="date-filter-label">From</span>
+              <input
+                id="dateFrom"
+                type="date"
+                aria-label="From planting date"
+                title="From planting date"
+              />
+            </div>
+    
+            <div class="field date-filter-field">
+              <span class="date-filter-label">To</span>
+              <input
+                id="dateTo"
+                type="date"
+                aria-label="To planting date"
+                title="To planting date"
+              />
+            </div>
+    
+            <div class="field">
+              <select id="sortSelect">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="name">Guest name A–Z</option>
+                <option value="trees">Most trees</option>
+              </select>
+            </div>
+    
+            <button class="refresh" type="button" onclick="loadData()">
+              ↻ 
+            </button>
+          </div>
       </section>
-      <section class="controls">
-        <div class="field">
-          <input
-            id="searchInput"
-            type="search"
-            placeholder="Search guest, country, tree or story…"
-            autocomplete="off"
-          />
-        </div>
-
-        <div class="field">
-          <select id="locationFilter">
-            <option value="">All locations</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <select id="countryFilter">
-            <option value="">All countries</option>
-          </select>
-        </div>
-
-        <div class="field date-filter-field">
-          <span class="date-filter-label">From</span>
-          <input
-            id="dateFrom"
-            type="date"
-            aria-label="From planting date"
-            title="From planting date"
-          />
-        </div>
-
-        <div class="field date-filter-field">
-          <span class="date-filter-label">To</span>
-          <input
-            id="dateTo"
-            type="date"
-            aria-label="To planting date"
-            title="To planting date"
-          />
-        </div>
-
-        <div class="field">
-          <select id="sortSelect">
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-            <option value="name">Guest name A–Z</option>
-            <option value="trees">Most trees</option>
-          </select>
-        </div>
-
-        <button class="refresh" type="button" onclick="loadData()">
-          ↻ 
-        </button>
-      </section>
+      
 
       <div class="section-head">
         <div>
