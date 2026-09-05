@@ -891,6 +891,132 @@
           flex-direction: column;
         }
       }
+      /* Property Summary */
+      .property-summary {
+        margin-top: 24px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .property-summary-head {
+        margin-bottom: 15px;
+      }
+      
+      .property-summary-head h2 {
+        margin: 0;
+        color: var(--green-950);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 24px;
+      }
+      
+      .property-summary-head p {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      
+      .property-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+      
+      .property-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--green-50);
+        padding: 14px;
+        transition: 0.2s ease;
+      }
+      
+      .property-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+        border-color: #cddcd1;
+      }
+      
+      .property-name {
+        color: var(--green-950);
+        font-weight: 850;
+        font-size: 15px;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+      }
+      
+      .property-numbers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+      
+      .property-number {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 7px;
+        text-align: center;
+      }
+      
+      .property-number .number {
+        display: block;
+        color: var(--green-900);
+        font-size: 20px;
+        font-weight: 850;
+        line-height: 1.1;
+      }
+      
+      .property-number .label {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 750;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      
+      .property-loading {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: var(--muted);
+        padding: 20px;
+      }
+      
+      @media (max-width: 1000px) {
+        .property-summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      
+      @media (max-width: 650px) {
+        .property-summary {
+          padding: 13px;
+        }
+      
+        .property-summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 7px;
+        }
+      
+        .property-card {
+          padding: 10px;
+        }
+      
+        .property-name {
+          font-size: 12px;
+        }
+      
+        .property-number .number {
+          font-size: 17px;
+        }
+      
+        .property-number .label {
+          font-size: 8px;
+        }
+      }
     </style>
   </head>
 
@@ -941,7 +1067,21 @@
         <div class="label">Stay Locations</div>
       </div> -->
       </section>
-
+      <!-- Property Summary -->
+      <section class="property-summary" aria-label="Tree planting summary by property">
+        <div class="property-summary-head">
+          <div>
+            <h2>Planting by Property</h2>
+            <p>Total guests and trees planted at each Stay Nature property.</p>
+          </div>
+        </div>
+      
+        <div class="property-summary-grid" id="propertySummary">
+          <div class="property-loading">
+            🌿 Loading property totals…
+          </div>
+        </div>
+      </section>
       <section class="controls">
         <div class="field">
           <input
@@ -1639,6 +1779,78 @@
         // document.getElementById("statLocations").textContent =
         //   uniqueSorted(allData.map(x => x["Stay Location"])).length.toLocaleString();
       }
+      function updatePropertySummary() {
+        const container = document.getElementById("propertySummary");
+      
+        if (!container) return;
+      
+        const propertyMap = new Map();
+      
+        allData.forEach((item) => {
+          const property =
+            clean(item["Stay Location"]) || "Stay Nature";
+      
+          const guests = guestCount(item);
+          const trees = treeCount(item);
+      
+          if (!propertyMap.has(property)) {
+            propertyMap.set(property, {
+              guests: 0,
+              trees: 0,
+            });
+          }
+      
+          const current = propertyMap.get(property);
+      
+          current.guests += guests;
+          current.trees += trees;
+        });
+      
+        const properties = [...propertyMap.entries()].sort((a, b) =>
+          a[0].localeCompare(b[0])
+        );
+      
+        if (!properties.length) {
+          container.innerHTML = `
+            <div class="property-loading">
+              No property data available.
+            </div>
+          `;
+          return;
+        }
+      
+        container.innerHTML = properties
+          .map(([property, data]) => {
+            return `
+              <div class="property-card">
+                <div class="property-name">
+                  ${esc(property)}
+                </div>
+      
+                <div class="property-numbers">
+                  <div class="property-number">
+                    <span class="number">
+                      ${data.guests.toLocaleString()}
+                    </span>
+                    <span class="label">
+                      Guests
+                    </span>
+                  </div>
+      
+                  <div class="property-number">
+                    <span class="number">
+                      ${data.trees.toLocaleString()}
+                    </span>
+                    <span class="label">
+                      Trees
+                    </span>
+                  </div>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
 
       function applyFilters(resetPage = true) {
         const q = clean(searchInput.value).toLocaleLowerCase();
@@ -1930,7 +2142,9 @@
           : Array.isArray(data?.data)
             ? data.data
             : [];
+      
         updateStats();
+        updatePropertySummary();
         populateFilters();
         applyFilters();
       }
