@@ -1778,6 +1778,23 @@
         );
       }
 
+      // ========== EVENT DETECTION - CHECKS Category OR Events FIELD ==========
+      function isEvent(item) {
+        const category = clean(item["Category"]).toLowerCase();
+        const events = clean(item["Events"]).toLowerCase();
+        return category === "event" || events === "event";
+      }
+
+      // ========== Get location for display ==========
+      // For events -> Event Location
+      // For regular guests -> Stay Location, fall back to "Stay Nature" if blank
+      function getDisplayLocation(item) {
+        if (isEvent(item)) {
+          return clean(item["Event Location"]) || "Event";
+        }
+        return clean(item["Stay Location"]) || "Stay Nature";
+      }
+
       function singularPronouns(item) {
         const title = clean(item["Title"]).toLowerCase().replaceAll(".", "").trim();
         if (["mr", "mister", "sir"].includes(title)) {
@@ -1898,7 +1915,7 @@
       }
 
       function populateFilters() {
-        const locations = uniqueSorted(allData.map((x) => x["Stay Location"]));
+        const locations = uniqueSorted(allData.map((x) => getDisplayLocation(x)));
         const countryTotals = buildCountryTotals();
         const countries = [...countryTotals.keys()].sort((a, b) => a.localeCompare(b));
 
@@ -1932,6 +1949,7 @@
         if (!container) return;
         const propertyMap = new Map();
         allData.forEach((item) => {
+          // Option B: Include events. Blank Stay Location -> "Stay Nature"
           const property = clean(item["Stay Location"]) || "Stay Nature";
           const guests = guestCount(item);
           const trees = treeCount(item);
@@ -2207,18 +2225,14 @@
       // ============== VIEW SWITCHER ==============
       function applyView(view) {
         currentView = view;
-        // Remove all layout classes
         grid.classList.remove("layout-grid", "layout-list", "layout-compact", "layout-masonry");
         grid.classList.add(`layout-${view}`);
-        // Update buttons
         viewSwitcher.querySelectorAll(".view-btn").forEach((btn) => {
           btn.classList.toggle("active", btn.dataset.view === view);
         });
-        // Save preference
         try { localStorage.setItem("staynature_view", view); } catch (e) {}
       }
 
-      // Restore saved view
       (function initView() {
         let saved = "grid";
         try { saved = localStorage.getItem("staynature_view") || "grid"; } catch (e) {}
@@ -2246,11 +2260,12 @@
           .map((item, index) => ({ item, index }))
           .filter(({ item }) => {
             const haystack = [
-              item["Name"], item["Your Country"], item["Stay Location"],
+              item["Name"], item["Your Country"], getDisplayLocation(item),
               item["Room"], item["Guest Totals:"], item["Family or Group Members Name"],
               item["Type of Tree Planted"], item["Comments, Request or Share Your Story"],
+              item["Descripton"], item["Event Location"],
             ].map(clean).join(" ").toLocaleLowerCase();
-            const itemLocation = clean(item["Stay Location"]).toLocaleLowerCase();
+            const itemLocation = getDisplayLocation(item).toLocaleLowerCase();
             const itemCountry = clean(item["Your Country"]).toLocaleLowerCase();
             const itemDate = parsePlantingDate(item["Tree Planting Date and Time"]);
             const passesDate =
@@ -2300,7 +2315,8 @@
       function cardHtml(item, index) {
         const photos = getPhotos(item);
         const firstPhoto = photos[0] ? imageUrl(photos[0]) : "";
-        const location = clean(item["Stay Location"]) || "Stay Nature";
+        const isEventItem = isEvent(item);
+        const location = getDisplayLocation(item);
         const country = clean(item["Your Country"]) || "Guest";
         const tree = clean(item["Type of Tree Planted"]) || "Tree";
         const date = clean(item["Tree Planting Date and Time"]);
@@ -2343,8 +2359,11 @@
 
       function openModal(item) {
         const photos = getPhotos(item);
-        const story = clean(item["Comments, Request or Share Your Story"]) || "Thank you for sharing the beauty of nature with us 🙏🏻";
-        const location = clean(item["Stay Location"]) || "—";
+        const isEventItem = isEvent(item);
+        const story = isEventItem
+          ? clean(item["Descripton"]) || "Event details will be shared soon."
+          : clean(item["Comments, Request or Share Your Story"]) || "Thank you for sharing the beauty of nature with us 🙏🏻";
+        const location = getDisplayLocation(item);
         const country = clean(item["Your Country"]) || "—";
         const tree = clean(item["Type of Tree Planted"]) || "—";
         const date = clean(item["Tree Planting Date and Time"]) || "—";
@@ -2356,65 +2375,101 @@
         const plantingGroup = language.plantingWith;
 
         document.getElementById("modalTitle").textContent = name;
-        document.getElementById("modalContent").innerHTML = `
-      ${photos.length ? `
-        <div class="gallery">
-          ${photos.map((url) => `
-            <img src="${esc(imageUrl(url))}" alt="Tree planting photo" loading="lazy" onerror="this.style.display='none'">
-          `).join("")}
-        </div>` : `
-        <div class="state">
-          <div class="icon">🌱</div>
-          <strong>No public photo available</strong>
-        </div>`}
 
-      <div class="modal-meta">
-        <div class="meta-box">
-          <span>Country:</span>
-          <strong><span class="flag">${getFlag(country)}</span> ${esc(country)}</strong>
-        </div>
-        <div class="meta-box"><span>Stay Location:</span><strong>${esc(location)}</strong></div>
-        <div class="meta-box"><span>Room:</span><strong>${esc(room)}</strong></div>
-        <div class="meta-box"><span>Guest Totals:</span><strong>${esc(guests)}</strong></div>
-        <div class="meta-box">
-          <span>Planting Tree with:</span>
-          <strong class="planting-with">👥 ${esc(plantingGroup)}</strong>
-        </div>
-        <div class="meta-box"><span>Tree:</span><strong>${esc(tree)}</strong></div>
-        <div class="meta-box"><span>Trees Planted:</span><strong>${count}</strong></div>
-      </div>
+        if (isEventItem) {
+          document.getElementById("modalContent").innerHTML = `
+            ${photos.length ? `
+              <div class="gallery">
+                ${photos.map((url) => `
+                  <img src="${esc(imageUrl(url))}" alt="Tree planting photo" loading="lazy" onerror="this.style.display='none'">
+                `).join("")}
+              </div>` : `
+              <div class="state">
+                <div class="icon">🌱</div>
+                <strong>No public photo available</strong>
+              </div>`}
 
-      <div class="modal-meta" style="grid-template-columns:1fr">
-        <div class="meta-box">
-          <span>Planting Date & Time:</span>
-          <strong>${esc(formatDate(date))}</strong>
-        </div>
-      </div>
+            <div class="modal-meta">
+              <div class="meta-box">
+                <span>Country:</span>
+                <strong><span class="flag">${getFlag(country)}</span> ${esc(country)}</strong>
+              </div>
+              <div class="meta-box"><span>Event Location:</span><strong>${esc(location)}</strong></div>
+              <div class="meta-box"><span>Guest Totals:</span><strong>${esc(guests)}</strong></div>
+              <div class="meta-box"><span>Tree:</span><strong>${esc(tree)}</strong></div>
+              <div class="meta-box"><span>Trees Planted:</span><strong>${count}</strong></div>
+            </div>
 
-      <div class="full-story"><span>Guest Comments & Share Story:</span><br> ${esc(story)}</div>
+            <div class="modal-meta" style="grid-template-columns:1fr">
+              <div class="meta-box">
+                <span>Planting Date & Time:</span>
+                <strong>${esc(formatDate(date))}</strong>
+              </div>
+            </div>
 
-      <div class="modal-welcome">
-        <p class="welcome-line">
-          We had the pleasure of welcoming ${esc(name)} ${esc(language.welcomeSuffix)}
-          from ${esc(country)} ${getFlag(country)}.
-        </p>
-        <p>
-          During ${esc(language.possessive)} stay, ${esc(language.subject)} joined us in planting a tree—a simple yet meaningful
-          gesture that reflects our shared commitment to sustainability and community.
-          This tree will continue to grow in Cambodia, carrying the memory of
-          ${esc(language.possessive)} visit and our shared promise to protect nature for future generations.
-        </p>
-        <p class="give-back">At StayNature, every stay gives back.</p>
-        <p>
-          Thank you for choosing StayNature Hotels, and we hope
-          ${esc(language.thankYouTarget)} return soon to watch ${esc(language.treeOwner)} tree grow.
-        </p>
-        <div class="signature">
-          <strong>StayNature Group</strong>
-          <span>Nature. Culture. Community.</span>
-        </div>
-      </div>
-    `;
+            <div class="full-story"><span>Description event:</span><br> ${esc(story)}</div>
+          `;
+        } else {
+          document.getElementById("modalContent").innerHTML = `
+            ${photos.length ? `
+              <div class="gallery">
+                ${photos.map((url) => `
+                  <img src="${esc(imageUrl(url))}" alt="Tree planting photo" loading="lazy" onerror="this.style.display='none'">
+                `).join("")}
+              </div>` : `
+              <div class="state">
+                <div class="icon">🌱</div>
+                <strong>No public photo available</strong>
+              </div>`}
+
+            <div class="modal-meta">
+              <div class="meta-box">
+                <span>Country:</span>
+                <strong><span class="flag">${getFlag(country)}</span> ${esc(country)}</strong>
+              </div>
+              <div class="meta-box"><span>Stay Location:</span><strong>${esc(location)}</strong></div>
+              <div class="meta-box"><span>Room:</span><strong>${esc(room)}</strong></div>
+              <div class="meta-box"><span>Guest Totals:</span><strong>${esc(guests)}</strong></div>
+              <div class="meta-box">
+                <span>Planting Tree with:</span>
+                <strong class="planting-with">👥 ${esc(plantingGroup)}</strong>
+              </div>
+              <div class="meta-box"><span>Tree:</span><strong>${esc(tree)}</strong></div>
+              <div class="meta-box"><span>Trees Planted:</span><strong>${count}</strong></div>
+            </div>
+
+            <div class="modal-meta" style="grid-template-columns:1fr">
+              <div class="meta-box">
+                <span>Planting Date & Time:</span>
+                <strong>${esc(formatDate(date))}</strong>
+              </div>
+            </div>
+
+            <div class="full-story"><span>Guest Comments & Share Story:</span><br> ${esc(story)}</div>
+
+            <div class="modal-welcome">
+              <p class="welcome-line">
+                We had the pleasure of welcoming ${esc(name)} ${esc(language.welcomeSuffix)}
+                from ${esc(country)} ${getFlag(country)}.
+              </p>
+              <p>
+                During ${esc(language.possessive)} stay, ${esc(language.subject)} joined us in planting a tree—a simple yet meaningful
+                gesture that reflects our shared commitment to sustainability and community.
+                This tree will continue to grow in Cambodia, carrying the memory of
+                ${esc(language.possessive)} visit and our shared promise to protect nature for future generations.
+              </p>
+              <p class="give-back">At StayNature, every stay gives back.</p>
+              <p>
+                Thank you for choosing StayNature Hotels, and we hope
+                ${esc(language.thankYouTarget)} return soon to watch ${esc(language.treeOwner)} tree grow.
+              </p>
+              <div class="signature">
+                <strong>StayNature Group</strong>
+                <span>Nature. Culture. Community.</span>
+              </div>
+            </div>
+          `;
+        }
         document.getElementById("modal").classList.add("open");
         document.body.style.overflow = "hidden";
       }
