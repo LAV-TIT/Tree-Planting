@@ -1572,7 +1572,7 @@
       let allData = [];
       let filteredData = [];
       let visibleCount = PAGE_SIZE;
-      let currentView = "grid";
+      let currentView = "compact";
 
       const grid = document.getElementById("grid");
       const resultCount = document.getElementById("resultCount");
@@ -2232,11 +2232,11 @@
         });
         try { localStorage.setItem("staynature_view", view); } catch (e) {}
       }
-
+      
       (function initView() {
-        let saved = "grid";
-        try { saved = localStorage.getItem("staynature_view") || "grid"; } catch (e) {}
-        if (!["grid", "list", "compact", "masonry"].includes(saved)) saved = "grid";
+        let saved = "compact";
+        try { saved = localStorage.getItem("staynature_view") || "compact"; } catch (e) {}
+        if (!["grid", "list", "compact", "masonry"].includes(saved)) saved = "compact";
         applyView(saved);
       })();
 
