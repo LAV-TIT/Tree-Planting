@@ -718,7 +718,13 @@
         font-size: 9px;
         padding: 3px 6px;
       }
-      .grid.layout-compact .date {
+       .grid.layout-compact .guest-date,.card-body .guest-date{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .grid.layout-compact .date,.grid.layout-compact .room-number {
         margin-top: 6px;
         font-size: 10px;
       }
@@ -1559,7 +1565,7 @@
     </div>
 
 
-    <script>
+        <script>
       /*
     EXTERNAL WEBSITE:
     Replace this URL with your deployed Apps Script Web App URL.
@@ -2232,7 +2238,7 @@
         });
         try { localStorage.setItem("staynature_view", view); } catch (e) {}
       }
-      
+
       (function initView() {
         let saved = "compact";
         try { saved = localStorage.getItem("staynature_view") || "compact"; } catch (e) {}
@@ -2322,6 +2328,7 @@
         const date = clean(item["Tree Planting Date and Time"]);
         const count = treeCount(item);
         const guests = clean(item["Guest Totals:"]) || "—";
+        const room = clean(item["Room"]) || "—";
 
         return `
       <article class="card" style="margin: 0;padding-bottom:0;">
@@ -2341,9 +2348,13 @@
             <div><h3>${esc(guestName(item))}</h3></div>
             <div class="country"><span class="flag">${getFlag(country)}</span> ${esc(country)}</div>
           </div>
-          <div class="guest-date">
-            ${date ? `<div class="date">Date:${esc(formatCardDate(date))}</div>` : ""}
-          </div>
+         <div class="guest-date">
+            ${date ? `<div class="date">Date: ${esc(formatCardDate(date))}</div>` : ""}
+            <div class="room-number">
+                <span>Room:</span>
+                <strong>${esc(room)}</strong>
+            </div>
+            </div>
           <div class="tree-info">
             <div class="tree-name">${esc(tree)}</div>
             <div class="tree-number">${count || 1} ${count === 1 ? "tree" : "trees"}🌱</div>
