@@ -156,7 +156,6 @@
           linear-gradient(135deg, var(--green-950), var(--green-700));
         padding: 30px 20px 60px;
       }
-
       .hero::before,
       .hero::after {
         content: "";
@@ -164,7 +163,6 @@
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.06);
       }
-
       .hero::before {
         width: 280px;
         height: 280px;
@@ -914,7 +912,7 @@
       .meta-box {
         background: var(--green-50);
         border: 1px solid #e4ece6;
-        border-radius: 14px;
+        border-radius: 8px;
         padding: 13px;
       }
 
@@ -1015,6 +1013,9 @@
         gap: 12px;
         margin-bottom: 18px;
       }
+      .modal-photo-gallery.single-photo { grid-template-columns: minmax(0, 1fr); }
+      .modal-photo-gallery.single-photo .modal-photo-tile { max-width: 900px; width: 100%; margin: 0 auto; }
+      .modal-photo-gallery.single-photo .modal-photo-tile img { aspect-ratio: 16/9; max-height: 70vh; object-fit: contain; }
       .modal-photo-tile {
         position: relative;
         min-width: 0;
@@ -1082,7 +1083,7 @@
         object-fit: contain;
         transform: scale(1);
         transform-origin: center center;
-        transition: transform .08s ease-out;
+        transition: transform .12s ease-out;
         user-select: none;
         pointer-events: none;
         -webkit-user-drag: none;
@@ -1160,7 +1161,13 @@
         border: 1px solid rgba(255, 255, 255, 0.15);
       }
       .lightbox-tools .lightbox-btn { position: static; width: 40px; height: 40px; font-size: 22px; }
-      .lightbox-counter { min-width: 74px; text-align: center; font-size: 14px; color: rgba(255,255,255,.9); }
+      .lightbox-counter {
+        position: absolute; z-index: 5; top: 16px; left: 50%; transform: translateX(-50%);
+        padding: 10px 16px; min-width: 76px; text-align: center; font-size: 14px;
+        color: #fff; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+        border-radius: 999px; backdrop-filter: blur(10px); pointer-events: none;
+      }
+      .lightbox-zoom-level { min-width: 58px; text-align: center; font-size: 14px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
       @media (max-width: 650px) {
         .modal-photo-gallery { gap: 8px; }
         .modal-photo-tile img { height: clamp(125px, 38vw, 220px); }
@@ -1169,6 +1176,8 @@
         .lightbox-thumb { flex-basis: 52px; width: 52px; height: 40px; }
         .lightbox-tools { bottom: 68px; gap: 6px; }
         .lightbox-tools .lightbox-btn { width: 34px; height: 34px; }
+        .lightbox-counter { top: 12px; padding: 8px 12px; }
+        .lightbox-zoom-level { min-width: 48px; font-size: 12px; }
         .lightbox-prev, .lightbox-next { width: 38px; height: 38px; font-size: 24px; }
         .lightbox-prev { left: 8px; }
         .lightbox-next { right: 8px; }
@@ -1526,11 +1535,12 @@
       <div class="lightbox-stage" id="lightboxStage">
         <img class="lightbox-image" id="lightboxImage" alt="Tree planting photo">
       </div>
-      <div class="lightbox-thumbs" id="lightboxThumbs" aria-label="Choose a photo"></div>
       <button class="lightbox-btn lightbox-next" id="lightboxNext" type="button" aria-label="Next photo">›</button>
+      <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+      <div class="lightbox-thumbs" id="lightboxThumbs" aria-label="Choose a photo"></div>
       <div class="lightbox-tools">
         <button class="lightbox-btn" id="zoomOut" type="button" aria-label="Zoom out">−</button>
-        <span class="lightbox-counter" id="lightboxCounter">1 / 1</span>
+        <span class="lightbox-zoom-level" id="lightboxZoomLevel">100%</span>
         <button class="lightbox-btn" id="zoomIn" type="button" aria-label="Zoom in">+</button>
         <button class="lightbox-btn" id="zoomReset" type="button" aria-label="Reset zoom" title="Reset zoom">⤢</button>
       </div>
@@ -1928,7 +1938,7 @@
           srcset="https://flagcdn.com/w160/${code}.png 2x"
           alt="${code.toUpperCase()}"
           loading="lazy"
-          style="height:1em;width:auto;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);">`;
+          style="height:1em;width:auto;border-radius:1px;box-shadow:0 0 0 1px rgba(0,0,0,.12);">`;
     }
 
     // Flag EMOJI - only used inside <option> (images can't go inside a <select>)
@@ -2583,7 +2593,7 @@
     function galleryHtml(photos) {
       const visiblePhotos = photos.slice(0, 2);
       const extra = Math.max(0, photos.length - 2);
-      return `<div class="modal-photo-gallery">
+      return `<div class="modal-photo-gallery ${photos.length === 1 ? "single-photo" : ""}">
         ${visiblePhotos.map((url, index) => `
           <button class="modal-photo-tile ${index === 1 && extra ? "more-photos-tile" : ""}"
                   type="button" data-gallery-index="${index}" aria-label="${index === 1 && extra ? `View ${extra} more photos` : `View photo ${index + 1}`}">
@@ -2706,6 +2716,7 @@
     const photoLightbox = document.getElementById("photoLightbox");
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxCounter = document.getElementById("lightboxCounter");
+    const lightboxZoomLevel = document.getElementById("lightboxZoomLevel");
     const lightboxThumbs = document.getElementById("lightboxThumbs");
     let lightboxPhotos = [];
     let lightboxIndex = 0;
@@ -2722,6 +2733,7 @@
     function renderLightboxTransform(animate = true) {
       lightboxImage.style.transition = animate ? "transform .08s ease-out" : "none";
       lightboxImage.style.transform = `translate3d(${lightboxPanX}px, ${lightboxPanY}px, 0) scale(${lightboxZoom})`;
+      lightboxZoomLevel.textContent = `${Math.round(lightboxZoom * 100)}%`;
     }
 
     function resetLightboxView() {
@@ -2844,29 +2856,77 @@
       changeZoom(event.deltaY < 0 ? 0.2 : -0.2, event.clientX, event.clientY);
     }, { passive: false });
 
-    // Drag the zoomed photo to inspect any area. Pointer events support mouse and touch.
+    // Smooth touch pinch-to-zoom, one-finger pan while zoomed, and mouse drag.
+    const activePointers = new Map();
+    let pinchStartDistance = 0;
+    let pinchStartZoom = 1;
+    let pinchAnchorX = 0;
+    let pinchAnchorY = 0;
+
+    function pointerDistance(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
     lightboxStage.addEventListener("pointerdown", (event) => {
-      if (lightboxZoom <= 1 || event.target.closest(".lightbox-btn")) return;
-      isPanningLightbox = true;
-      panStartX = event.clientX;
-      panStartY = event.clientY;
-      panOriginX = lightboxPanX;
-      panOriginY = lightboxPanY;
-      lightboxStage.classList.add("is-dragging");
-      lightboxImage.style.transition = "none";
+      if (event.target.closest(".lightbox-btn")) return;
+      activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
       lightboxStage.setPointerCapture?.(event.pointerId);
-      event.preventDefault();
+      lightboxImage.style.transition = "none";
+
+      if (activePointers.size === 2) {
+        const pts = [...activePointers.values()];
+        pinchStartDistance = pointerDistance(pts[0], pts[1]);
+        pinchStartZoom = lightboxZoom;
+        pinchAnchorX = (pts[0].x + pts[1].x) / 2;
+        pinchAnchorY = (pts[0].y + pts[1].y) / 2;
+        isPanningLightbox = false;
+        event.preventDefault();
+      } else if (lightboxZoom > 1) {
+        isPanningLightbox = true;
+        panStartX = event.clientX;
+        panStartY = event.clientY;
+        panOriginX = lightboxPanX;
+        panOriginY = lightboxPanY;
+        lightboxStage.classList.add("is-dragging");
+        event.preventDefault();
+      }
     });
+
     lightboxStage.addEventListener("pointermove", (event) => {
-      if (!isPanningLightbox) return;
-      lightboxPanX = panOriginX + (event.clientX - panStartX);
-      lightboxPanY = panOriginY + (event.clientY - panStartY);
-      renderLightboxTransform(false);
+      if (!activePointers.has(event.pointerId)) return;
+      activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+      if (activePointers.size >= 2) {
+        const pts = [...activePointers.values()];
+        const distance = pointerDistance(pts[0], pts[1]);
+        if (pinchStartDistance > 0) {
+          const nextZoom = Math.max(1, Math.min(4, pinchStartZoom * distance / pinchStartDistance));
+          const rect = lightboxStage.getBoundingClientRect();
+          const cx = (pts[0].x + pts[1].x) / 2;
+          const cy = (pts[0].y + pts[1].y) / 2;
+          const oldZoom = lightboxZoom;
+          lightboxZoom = nextZoom;
+          const x = pinchAnchorX - (rect.left + rect.width / 2);
+          const y = pinchAnchorY - (rect.top + rect.height / 2);
+          lightboxPanX = x - (x - lightboxPanX) * (lightboxZoom / oldZoom) + (cx - pinchAnchorX);
+          lightboxPanY = y - (y - lightboxPanY) * (lightboxZoom / oldZoom) + (cy - pinchAnchorY);
+          if (lightboxZoom === 1) { lightboxPanX = 0; lightboxPanY = 0; }
+          renderLightboxTransform(false);
+        }
+        event.preventDefault();
+      } else if (isPanningLightbox) {
+        lightboxPanX = panOriginX + (event.clientX - panStartX);
+        lightboxPanY = panOriginY + (event.clientY - panStartY);
+        renderLightboxTransform(false);
+      }
     });
-    function stopPanningLightbox() {
+
+    function stopPanningLightbox(event) {
+      activePointers.delete(event.pointerId);
       isPanningLightbox = false;
+      pinchStartDistance = 0;
       lightboxStage.classList.remove("is-dragging");
-      lightboxImage.style.transition = "transform .08s ease-out";
+      lightboxImage.style.transition = "transform .12s ease-out";
     }
     lightboxStage.addEventListener("pointerup", stopPanningLightbox);
     lightboxStage.addEventListener("pointercancel", stopPanningLightbox);
