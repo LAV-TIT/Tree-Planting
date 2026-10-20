@@ -1564,8 +1564,7 @@
       </div>
     </div>
 
-
-        <script>
+<script>
       /*
     EXTERNAL WEBSITE:
     Replace this URL with your deployed Apps Script Web App URL.
@@ -1670,69 +1669,95 @@
         return Number.isNaN(result.getTime()) ? null : result;
       }
 
-      function getFlag(country) {
-        if (!country) return "🌍";
-        const countryMap = {
-          afghanistan: "AF", albania: "AL", algeria: "DZ", andorra: "AD", angola: "AO",
-          "antigua and barbuda": "AG", argentina: "AR", armenia: "AM", australia: "AU",
-          austria: "AT", azerbaijan: "AZ", bahamas: "BS", bahrain: "BH", bangladesh: "BD",
-          barbados: "BB", belarus: "BY", belgium: "BE", belize: "BZ", benin: "BJ",
-          bhutan: "BT", bolivia: "BO", "bosnia and herzegovina": "BA", botswana: "BW",
-          brazil: "BR", brunei: "BN", bulgaria: "BG", "burkina faso": "BF", burundi: "BI",
-          "cabo verde": "CV", cambodia: "KH", khmer: "KH", cameroon: "CM", canada: "CA",
-          "central african republic": "CF", chad: "TD", chile: "CL", china: "CN",
-          colombia: "CO", comoros: "KM", congo: "CD", "costa rica": "CR", croatia: "HR",
-          cuba: "CU", cyprus: "CY", "czech republic": "CZ", czechia: "CZ", denmark: "DK",
-          djibouti: "DJ", dominica: "DM", "dominican republic": "DO", ecuador: "EC",
-          egypt: "EG", "el salvador": "SV", "equatorial guinea": "GQ", eritrea: "ER",
-          estonia: "EE", eswatini: "SZ", ethiopia: "ET", fiji: "FJ", finland: "FI",
-          france: "FR", gabon: "GA", gambia: "GM", georgia: "GE", germany: "DE",
-          ghana: "GH", greece: "GR", grenada: "GD", guatemala: "GT", guinea: "GN",
-          "guinea-bissau": "GW", guyana: "GY", haiti: "HT", honduras: "HN", hungary: "HU",
-          iceland: "IS", india: "IN", indonesia: "ID", iran: "IR", iraq: "IQ",
-          ireland: "IE", israel: "IL", italy: "IT", jamaica: "JM", japan: "JP",
-          jordan: "JO", kazakhstan: "KZ", kenya: "KE", kiribati: "KI", korea: "KR",
-          "south korea": "KR", kuwait: "KW", kyrgyzstan: "KG", laos: "LA", latvia: "LV",
-          lebanon: "LB", lesotho: "LS", liberia: "LR", libya: "LY", liechtenstein: "LI",
-          lithuania: "LT", luxembourg: "LU", madagascar: "MG", malawi: "MW",
-          malaysia: "MY", maldives: "MV", mali: "ML", malta: "MT", "marshall islands": "MH",
-          mauritania: "MR", mauritius: "MU", mexico: "MX", micronesia: "FM",
-          moldova: "MD", monaco: "MC", mongolia: "MN", montenegro: "ME", morocco: "MA",
-          mozambique: "MZ", myanmar: "MM", namibia: "NA", nauru: "NR", nepal: "NP",
-          netherlands: "NL", "new zealand": "NZ", nicaragua: "NI", niger: "NE",
-          nigeria: "NG", "north macedonia": "MK", norway: "NO", oman: "OM",
-          pakistan: "PK", palau: "PW", panama: "PA", "papua new guinea": "PG",
-          paraguay: "PY", peru: "PE", philippines: "PH", poland: "PL", portugal: "PT",
-          qatar: "QA", romania: "RO", russia: "RU", rwanda: "RW",
-          "saint kitts and nevis": "KN", "saint lucia": "LC",
-          "saint vincent and the grenadines": "VC", samoa: "WS", "san marino": "SM",
-          "sao tome and principe": "ST", "saudi arabia": "SA", senegal: "SN",
-          serbia: "RS", seychelles: "SC", "sierra leone": "SL", singapore: "SG",
-          slovakia: "SK", slovenia: "SI", "solomon islands": "SB", somalia: "SO",
-          "south africa": "ZA", spain: "ES", "sri lanka": "LK", sudan: "SD",
-          suriname: "SR", sweden: "SE", switzerland: "CH", syria: "SY", taiwan: "TW",
-          tajikistan: "TJ", tanzania: "TZ", thailand: "TH", "timor-leste": "TL",
-          togo: "TG", tonga: "TO", "trinidad and tobago": "TT", tunisia: "TN",
-          turkey: "TR", turkmenistan: "TM", tuvalu: "TV", uganda: "UG", ukraine: "UA",
-          "united arab emirates": "AE", uae: "AE", "united kingdom": "GB", uk: "GB",
-          "united states": "US", usa: "US", uruguay: "UY", uzbekistan: "UZ",
-          vanuatu: "VU", "vatican city": "VA", venezuela: "VE", vietnam: "VN",
-          yemen: "YE", zambia: "ZM", zimbabwe: "ZW",
-        };
+      // ========== FLAGS (Windows-safe) ==========
+      // Windows has no flag emoji in its fonts, so we use flag images instead.
+      const IS_WINDOWS = /Windows/i.test(navigator.userAgent);
+
+      const COUNTRY_MAP = {
+        afghanistan: "AF", albania: "AL", algeria: "DZ", andorra: "AD", angola: "AO",
+        "antigua and barbuda": "AG", argentina: "AR", armenia: "AM", australia: "AU",
+        austria: "AT", azerbaijan: "AZ", bahamas: "BS", bahrain: "BH", bangladesh: "BD",
+        barbados: "BB", belarus: "BY", belgium: "BE", belize: "BZ", benin: "BJ",
+        bhutan: "BT", bolivia: "BO", "bosnia and herzegovina": "BA", botswana: "BW",
+        brazil: "BR", brunei: "BN", bulgaria: "BG", "burkina faso": "BF", burundi: "BI",
+        "cabo verde": "CV", cambodia: "KH", khmer: "KH", cameroon: "CM", canada: "CA",
+        "central african republic": "CF", chad: "TD", chile: "CL", china: "CN",
+        colombia: "CO", comoros: "KM", congo: "CD", "costa rica": "CR", croatia: "HR",
+        cuba: "CU", cyprus: "CY", "czech republic": "CZ", czechia: "CZ", denmark: "DK",
+        djibouti: "DJ", dominica: "DM", "dominican republic": "DO", ecuador: "EC",
+        egypt: "EG", "el salvador": "SV", "equatorial guinea": "GQ", eritrea: "ER",
+        estonia: "EE", eswatini: "SZ", ethiopia: "ET", fiji: "FJ", finland: "FI",
+        france: "FR", gabon: "GA", gambia: "GM", georgia: "GE", germany: "DE",
+        ghana: "GH", greece: "GR", grenada: "GD", guatemala: "GT", guinea: "GN",
+        "guinea-bissau": "GW", guyana: "GY", haiti: "HT", honduras: "HN", hungary: "HU",
+        iceland: "IS", india: "IN", indonesia: "ID", iran: "IR", iraq: "IQ",
+        ireland: "IE", israel: "IL", italy: "IT", jamaica: "JM", japan: "JP",
+        jordan: "JO", kazakhstan: "KZ", kenya: "KE", kiribati: "KI", korea: "KR",
+        "south korea": "KR", kuwait: "KW", kyrgyzstan: "KG", laos: "LA", latvia: "LV",
+        lebanon: "LB", lesotho: "LS", liberia: "LR", libya: "LY", liechtenstein: "LI",
+        lithuania: "LT", luxembourg: "LU", madagascar: "MG", malawi: "MW",
+        malaysia: "MY", maldives: "MV", mali: "ML", malta: "MT", "marshall islands": "MH",
+        mauritania: "MR", mauritius: "MU", mexico: "MX", micronesia: "FM",
+        moldova: "MD", monaco: "MC", mongolia: "MN", montenegro: "ME", morocco: "MA",
+        mozambique: "MZ", myanmar: "MM", namibia: "NA", nauru: "NR", nepal: "NP",
+        netherlands: "NL", "new zealand": "NZ", nicaragua: "NI", niger: "NE",
+        nigeria: "NG", "north macedonia": "MK", norway: "NO", oman: "OM",
+        pakistan: "PK", palau: "PW", panama: "PA", "papua new guinea": "PG",
+        paraguay: "PY", peru: "PE", philippines: "PH", poland: "PL", portugal: "PT",
+        qatar: "QA", romania: "RO", russia: "RU", rwanda: "RW",
+        "saint kitts and nevis": "KN", "saint lucia": "LC",
+        "saint vincent and the grenadines": "VC", samoa: "WS", "san marino": "SM",
+        "sao tome and principe": "ST", "saudi arabia": "SA", senegal: "SN",
+        serbia: "RS", seychelles: "SC", "sierra leone": "SL", singapore: "SG",
+        slovakia: "SK", slovenia: "SI", "solomon islands": "SB", somalia: "SO",
+        "south africa": "ZA", spain: "ES", "sri lanka": "LK", sudan: "SD",
+        suriname: "SR", sweden: "SE", switzerland: "CH", syria: "SY", taiwan: "TW",
+        tajikistan: "TJ", tanzania: "TZ", thailand: "TH", "timor-leste": "TL",
+        togo: "TG", tonga: "TO", "trinidad and tobago": "TT", tunisia: "TN",
+        turkey: "TR", turkmenistan: "TM", tuvalu: "TV", uganda: "UG", ukraine: "UA",
+        "united arab emirates": "AE", uae: "AE", "united kingdom": "GB", uk: "GB",
+        "united states": "US", usa: "US", uruguay: "UY", uzbekistan: "UZ",
+        vanuatu: "VU", "vatican city": "VA", venezuela: "VE", vietnam: "VN",
+        yemen: "YE", zambia: "ZM", zimbabwe: "ZW",
+      };
+
+      // Returns the 2-letter country code (e.g. "KH") or "" if unknown
+      function getCountryCode(country) {
+        if (!country) return "";
         const key = country.toLowerCase().trim();
-        let code = countryMap[key];
+        let code = COUNTRY_MAP[key];
         if (!code) {
-          for (const [name, c] of Object.entries(countryMap)) {
+          for (const [name, c] of Object.entries(COUNTRY_MAP)) {
             if (key.includes(name) || name.includes(key)) {
               code = c;
               break;
             }
           }
         }
-        if (!code) return "🌍";
-        const codePoints = code.toUpperCase().split("").map((char) => 127397 + char.charCodeAt(0));
-        return String.fromCodePoint(...codePoints);
+        return code || "";
       }
+
+      // Flag as an IMAGE (works on Windows, Mac, Android, iOS)
+      function getFlag(country) {
+        const code = getCountryCode(country).toLowerCase();
+        if (!code) return "🌍";
+        return `<img class="flag-img"
+          src="https://flagcdn.com/w80/${code}.png"
+          srcset="https://flagcdn.com/w160/${code}.png 2x"
+          alt="${code.toUpperCase()}"
+          loading="lazy"
+          style="height:1em;width:auto;vertical-align:-0.125em;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12);">`;
+      }
+
+      // Flag EMOJI - only used inside <option> (images can't go inside a <select>)
+      function getFlagEmoji(country) {
+        const code = getCountryCode(country);
+        if (!code) return "🌍";
+        return String.fromCodePoint(
+          ...code.toUpperCase().split("").map((c) => 127397 + c.charCodeAt(0)),
+        );
+      }
+
       function esc(value) {
         return clean(value)
           .replaceAll("&", "&amp;")
@@ -1929,12 +1954,16 @@
           `<option value="">All locations</option>` +
           locations.map((v) => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
 
+        // <option> can't hold images. Mac/others: flag emoji. Windows: country code like [KH].
         countryFilter.innerHTML =
           `<option value="">All countries</option>` +
           countries.map((v) => {
             const data = countryTotals.get(v);
-            const flag = getFlag(v);
-            const label = `${flag} ${v} (G${data.guests},T${data.trees})`;
+            const code = getCountryCode(v);
+            const prefix = IS_WINDOWS
+              ? (code ? `[${code}]` : "")
+              : getFlagEmoji(v);
+            const label = `${prefix} ${v} (G${data.guests},T${data.trees})`.trim();
             return `<option value="${esc(v)}">${esc(label)}</option>`;
           }).join("");
       }
@@ -2563,6 +2592,7 @@
       });
 
       loadData();
-    </script>
+</script>
+
   </body>
 </html>
