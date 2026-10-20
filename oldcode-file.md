@@ -1,0 +1,2568 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#143f2c" />
+    <!-- Primary SEO -->
+    <title>Tree Planting Stories in Cambodia | Stay Nature</title>
+    <meta name="description" content="Discover inspiring tree planting stories from Stay Nature guests in Cambodia. Explore tree planting experiences, reforestation, nature conservation, and sustainable tourism." />
+    <meta name="keywords" content="Stay Nature, StayNature, tree planting Cambodia, tree planting stories Cambodia, Cambodia tree planting, plant a tree Cambodia, sustainable tourism Cambodia, nature conservation Cambodia, reforestation Cambodia, eco tourism Cambodia, sustainable travel Cambodia, Siem Reap tree planting, Siem Reap sustainable tourism, guest tree planting" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Stay Nature" />
+    <meta name="publisher" content="Stay Nature" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://staynature-tree-planting.vercel.app/" />
+    <!-- Language -->
+    <link rel="alternate" hreflang="en" href="https://staynature-tree-planting.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://staynature-tree-planting.vercel.app/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://www.staynature.com/wp-content/uploads/2024/12/StayNature-icon.png" />
+    <link rel="apple-touch-icon" href="https://www.staynature.com/wp-content/uploads/2024/12/StayNature-icon.png" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Stay Nature" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Tree Planting Stories in Cambodia | Stay Nature" />
+    <meta property="og:description" content="Discover inspiring tree planting stories from Stay Nature guests and explore our commitment to reforestation, nature conservation, and sustainable tourism in Cambodia." />
+    <meta property="og:url" content="https://staynature-tree-planting.vercel.app/" />
+    <meta property="og:image" content="https://www.staynature.com/wp-content/uploads/2026/08/Community-Gathering-By-Stay-Nature-Tree-Planting.jpg" />
+    <meta property="og:image:alt" content="Stay Nature community tree planting in Cambodia" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tree Planting Stories in Cambodia | Stay Nature" />
+    <meta name="twitter:description" content="Explore Stay Nature tree planting stories, guest experiences, reforestation, and our commitment to sustainable tourism in Cambodia." />
+    <meta name="twitter:image" content="https://www.staynature.com/wp-content/uploads/2026/08/Community-Gathering-By-Stay-Nature-Tree-Planting.jpg" />
+    <meta name="twitter:image:alt" content="Stay Nature community tree planting in Cambodia" />
+    <script>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.staynature.com/#organization",
+          "name": "Stay Nature",
+          "url": "https://www.staynature.com/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.staynature.com/#website",
+          "name": "Stay Nature",
+          "url": "https://www.staynature.com/",
+          "publisher": {
+            "@id": "https://www.staynature.com/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://staynature-tree-planting.vercel.app/#webpage",
+          "url": "https://staynature-tree-planting.vercel.app/",
+          "name": "Tree Planting Stories in Cambodia | Stay Nature",
+          "description": "Discover inspiring tree planting stories from Stay Nature guests in Cambodia. Explore tree planting experiences, reforestation, nature conservation, and sustainable tourism.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://www.staynature.com/#website"
+          },
+          "publisher": {
+            "@id": "https://www.staynature.com/#organization"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": "Tree planting and nature conservation in Cambodia"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.staynature.com/wp-content/uploads/2026/08/Community-Gathering-By-Stay-Nature-Tree-Planting.jpg",
+            "width": 1200,
+            "height": 630,
+            "caption": "Stay Nature community tree planting in Cambodia"
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+      :root {
+        --green-950: #0d2b1e;
+        --green-900: #143f2c;
+        --green-800: #1d563c;
+        --green-700: #2d6a4f;
+        --green-600: #3f7d5d;
+        --green-100: #eaf3ec;
+        --green-50: #f4f8f4;
+        --sand: #f5efe2;
+        --gold: #c79b52;
+        --text: #1c2a22;
+        --muted: #6c7b72;
+        --line: #dfe8e2;
+        --white: #ffffff;
+        --danger: #9f2f2f;
+        --shadow: 0 18px 50px rgba(19, 63, 44, 0.11);
+        --shadow-sm: 0 8px 26px rgba(19, 63, 44, 0.08);
+        --radius: 8px;
+        --font-title: "Tangerine", "Georgia", serif;
+        --font-body: "Sen", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        line-height: 1;
+        margin: 0;
+        font-family: var(--font-body);
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(199, 155, 82, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(180deg, #f8fbf8 0%, #f3f7f4 100%);
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background:
+          radial-gradient(
+            circle at 85% 15%,
+            rgba(255, 255, 255, 0.15),
+            transparent 22%
+          ),
+          linear-gradient(135deg, var(--green-950), var(--green-700));
+        padding: 30px 20px 60px;
+      }
+
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .hero::before {
+        width: 280px;
+        height: 280px;
+        right: -80px;
+        top: -90px;
+      }
+      .hero::after {
+        width: 180px;
+        height: 180px;
+        left: -50px;
+        bottom: -95px;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1180px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 34px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        border-radius: 999px;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 18px 0 14px;
+        font-family: var(--font-title);
+        font-size: clamp(42px, 6vw, 60px);
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        font-weight: 700;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 690px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 18px;
+        line-height: 1.75;
+      }
+
+      .hero-art {
+        min-height: 260px;
+        display: grid;
+        place-items: center;
+      }
+
+      .tree-mark {
+        width: min(320px, 80vw);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 120px;
+        background:
+          radial-gradient(
+            circle at 35% 30%,
+            rgba(255, 255, 255, 0.24),
+            transparent 25%
+          ),
+          rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.05);
+      }
+
+      .tree_page {
+        max-width: 1300px;
+        margin: -40px auto 0;
+        padding: 0 0 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+
+      .stat {
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(223, 232, 226, 0.9);
+        border-radius: 18px;
+        padding: 15px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .stat .value {
+        color: var(--green-900);
+        font-size: 29px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .stat .label {
+        color: var(--muted);
+        margin-top: 5px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.055em;
+      }
+
+      .controls {
+        margin-top: 8px;
+        padding: 8px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: minmax(220px, 2fr) minmax(130px, 1fr) minmax(130px, 1fr) minmax(165px, 1.15fr) minmax(165px, 1.15fr) minmax(130px, 1fr) auto;
+        gap: 12px;
+      }
+
+      .field {
+        position: relative;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        min-height: 48px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: #fff;
+        color: var(--text);
+        padding: 0 14px;
+        outline: none;
+        transition: 0.2s;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--green-600);
+        box-shadow: 0 0 0 4px rgba(63, 125, 93, 0.1);
+      }
+
+      .date-filter-field {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .date-filter-label {
+        color: var(--green-800);
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .date-filter-field input {
+        min-width: 0;
+      }
+
+      .refresh {
+        min-height: 48px;
+        border: 0;
+        border-radius: 13px;
+        background: var(--green-900);
+        color: #fff;
+        padding: 0 17px;
+        font-weight: 750;
+        box-shadow: 0 8px 20px rgba(20, 63, 44, 0.17);
+      }
+
+      .refresh:hover {
+        background: var(--green-800);
+      }
+
+      .section-head {
+        margin: 34px 2px 17px;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        color: var(--green-950);
+        font-size: 25px;
+      }
+
+      .section-head p {
+        margin: 4px 0 0;
+        color: var(--muted);
+      }
+
+      .section-head-right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .result-count {
+        color: var(--muted);
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      /* View switcher */
+      .view-switcher {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .view-btn {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 0;
+        border-radius: 9px;
+        background: transparent;
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .view-btn svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+
+      .view-btn:hover {
+        background: var(--green-50);
+        color: var(--green-800);
+      }
+
+      .view-btn.active {
+        background: var(--green-900);
+        color: #fff;
+      }
+
+      /* Grid layout (default) */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      /* Card base */
+      .card {
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+
+      .photo {
+        position: relative;
+        aspect-ratio: 10/10;
+        background: linear-gradient(135deg, #e3efe6, #f6efe2);
+        overflow: hidden;
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
+
+      .card:hover .photo img {
+        transform: scale(1.035);
+      }
+
+      .photo-placeholder {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        font-size: 70px;
+        color: var(--green-700);
+      }
+
+      .photo-count {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(13, 43, 30, 0.78);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-weight: 750;
+        backdrop-filter: blur(8px);
+      }
+
+      .location-tag,
+      .guest-total {
+        position: absolute;
+        bottom: 12px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--green-900);
+        padding: 7px 11px;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+      }
+      .location-tag {
+        left: 12px;
+      }
+      .guest-total {
+        right: 12px;
+        background: var(--green-100);
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-body {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .person {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .person h3 {
+        margin: 0;
+        color: var(--green-950);
+        font-size: 18px;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+      }
+
+      .country {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .flag {
+        font-size: 20px;
+      }
+      .tree-info {
+        margin-top: 15px;
+        padding: 8px 10px;
+        border-radius: 15px;
+        background: var(--green-50);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .tree-name {
+        font-weight: 600;
+        color: var(--green-900);
+        overflow-wrap: anywhere;
+        text-transform: capitalize;
+      }
+
+      .tree-number {
+        white-space: nowrap;
+        font-size: 12px;
+        color: var(--green-800);
+        font-weight: 700;
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 6px 9px;
+        border-radius: 999px;
+      }
+
+      .date {
+        margin-top: 13px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .story {
+        margin: 16px 0 0;
+        color: #526158;
+        font-size: 14px;
+        line-height: 1.65;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 69px;
+      }
+
+      .card-actions {
+        margin-top: auto;
+        padding-top: 10px;
+      }
+
+      .details-btn {
+        width: 100%;
+        min-height: 40px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--green-900);
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .details-btn:hover {
+        background: var(--green-50);
+        border-color: #cddcd1;
+        color: var(--green-600);
+      }
+
+      /* ============ LIST LAYOUT ============ */
+      .grid.layout-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .grid.layout-list .card {
+        flex-direction: row;
+        align-items: stretch;
+      }
+      .grid.layout-list .card:hover {
+        transform: translateY(-2px);
+      }
+      .grid.layout-list .photo {
+        width: 240px;
+        flex: 0 0 240px;
+        aspect-ratio: 4/3;
+        align-self: stretch;
+      }
+      .grid.layout-list .card-body {
+        flex: 1;
+        padding: 16px 18px;
+      }
+      .grid.layout-list .person h3 {
+        font-size: 18px;
+      }
+      .grid.layout-list .story {
+        -webkit-line-clamp: 2;
+        min-height: auto; 
+        margin-top: 10px;
+      }
+      .grid.layout-list .card-actions {
+        padding-top: 12px;
+      }
+      .grid.layout-list .details-btn {
+        width: auto;
+        padding: 0 22px;
+      }
+
+      /* ============ COMPACT LAYOUT ============ */
+      .grid.layout-compact {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .grid.layout-compact .card {
+        border-radius: 6px;
+      }
+      .grid.layout-compact .card:hover {
+        transform: translateY(-3px);
+      }
+      .grid.layout-compact .photo {
+        aspect-ratio: 3/3;
+      }
+      .grid.layout-compact .photo-placeholder {
+        font-size: 42px;
+      }
+      .grid.layout-compact .photo-count {
+        top: 8px;
+        right: 8px;
+        padding: 4px 7px;
+        font-size: 10px;
+      }
+      .grid.layout-compact .location-tag,
+      .grid.layout-compact .guest-total {
+        bottom: 8px;
+        padding: 4px 8px;
+        font-size: 10px;
+      }
+      .grid.layout-compact .location-tag {
+        left: 8px;
+      }
+      .grid.layout-compact .guest-total {
+        right: 8px;
+      }
+      .grid.layout-compact .card-body {
+        padding: 9px 10px 10px;
+      }
+      .grid.layout-compact .person {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3px;
+      }
+      .grid.layout-compact .person h3 {
+        font-size: 13px;
+      }
+      .grid.layout-compact .country {
+        font-size: 11px;
+      }
+      .grid.layout-compact .flag {
+        font-size: 14px;
+      }
+      .grid.layout-compact .tree-info {
+        margin-top: 8px;
+        padding: 5px 7px;
+        border-radius: 8px;
+        grid-template-columns: 1fr auto;
+        gap: 6px;
+      }
+      .grid.layout-compact .tree-name {
+        font-size: 11px;
+      }
+      .grid.layout-compact .tree-number {
+        font-size: 9px;
+        padding: 3px 6px;
+      }
+       .grid.layout-compact .guest-date,.card-body .guest-date{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .grid.layout-compact .date,.grid.layout-compact .room-number {
+        margin-top: 6px;
+        font-size: 10px;
+      }
+      .grid.layout-compact .card-actions {
+        padding-top: 8px;
+      }
+      .grid.layout-compact .details-btn {
+        min-height: 30px;
+        font-size: 11px;
+        border-radius: 8px;
+      }
+
+      /* ============ MASONRY LAYOUT ============ */
+      .grid.layout-masonry {
+        display: block;
+        column-count: 3;
+        column-gap: 12px;
+      }
+      .grid.layout-masonry .card {
+        break-inside: avoid;
+        margin-bottom: 12px;
+        display: inline-flex;
+        width: 100%;
+      }
+      .grid.layout-masonry .card:hover {
+        transform: translateY(-3px);
+      }
+      .grid.layout-masonry .photo {
+        aspect-ratio: auto;
+        max-height: 320px;
+      }
+      .grid.layout-masonry .photo img {
+        height: auto;
+        max-height: 320px;
+        object-fit: cover;
+      }
+
+      /* State (empty/loading/error) */
+      .state {
+        grid-column: 1/-1;
+        text-align: center;
+        border: 1px dashed #cfdcd3;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.74);
+        padding: 58px 20px;
+        color: var(--muted);
+      }
+      .grid.layout-masonry .state {
+        display: block;
+      }
+
+      .state .icon {
+        font-size: 48px;
+        margin-bottom: 11px;
+      }
+
+      .state strong {
+        display: block;
+        color: var(--green-900);
+        font-size: 19px;
+        margin-bottom: 5px;
+      }
+
+      .error {
+        color: var(--danger);
+      }
+
+      .load-more-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+      }
+
+      .load-more {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--green-900);
+        font-weight: 700;
+        padding: 12px 20px;
+        border-radius: 13px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .load-more[hidden] {
+        display: none;
+      }
+
+      .footer {
+        margin-top: 35px;
+        padding-top: 30px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Modal */
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(7, 27, 19, 0.72);
+        backdrop-filter: blur(7px);
+      }
+
+      .modal.open {
+        display: flex;
+      }
+
+      .modal-panel {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: #fff;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+      }
+
+      .modal-top {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        padding: 8px 18px;
+        background: rgba(255, 255, 255, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+      }
+
+      .modal-title {
+        font-weight: 850;
+        color: var(--green-950);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .close-btn {
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: #fff;
+        font-size: 25px;
+        font-weight: 100;
+        line-height: 1;
+        color: #185e03;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        padding: 22px;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .gallery img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 16px;
+        background: #edf3ef;
+        border: 1px solid var(--line);
+      }
+
+      .modal-meta {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .meta-box {
+        background: var(--green-50);
+        border: 1px solid #e4ece6;
+        border-radius: 14px;
+        padding: 13px;
+      }
+
+      .meta-box span,
+      .full-story span {
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .meta-box strong {
+        color: var(--green-900);
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+
+      .full-story {
+        margin-top: 18px;
+        border-left: 4px solid #2ba220;
+        border-radius: 0 14px 14px 0;
+        padding: 15px 18px;
+        background: #2ba22012;
+        color: #4c5a52;
+        line-height: 1.75;
+        white-space: pre-wrap;
+      }
+
+      .modal-welcome {
+        margin-top: 24px;
+        padding: 18px 15px;
+        border: 1px solid #dfe8e2;
+        border-radius: 18px;
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(199, 155, 82, 0.12),
+            transparent 35%
+          ),
+          linear-gradient(180deg, #f8fbf8 0%, #f1f7f3 100%);
+        color: #425249;
+        line-height: 1.8;
+      }
+
+      .modal-welcome p {
+        margin: 0 0 15px;
+      }
+
+      .modal-welcome p:last-child {
+        margin-bottom: 0;
+      }
+
+      .modal-welcome .welcome-line {
+        color: var(--green-950);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .modal-welcome .give-back {
+        color: var(--green-900);
+        font-weight: 600;
+      }
+
+      .modal-welcome .signature {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid #d9e5dc;
+      }
+
+      .modal-welcome .signature strong {
+        display: block;
+        color: var(--green-950);
+        font-size: 16px;
+      }
+
+      .modal-welcome .signature span {
+        display: block;
+        margin-top: 3px;
+        color: var(--green-700);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .planting-with {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      @media (max-width: 1000px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+        }
+        .hero-art {
+          display: none;
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .controls {
+          grid-template-columns: 1fr 1fr;
+        }
+        .refresh {
+          grid-column: span 2;
+        }
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+        .grid.layout-compact {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .grid.layout-masonry {
+          column-count: 2;
+        }
+        .modal-meta {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid.layout-list .photo {
+          width: 190px;
+          flex: 0 0 190px;
+        }
+      }
+      .tree-name {
+        font-size: 12px;
+      }
+      @media (max-width: 650px) {
+        .person h3 {
+          font-size: 12px;
+        }
+        .country,
+        .details-btn,
+        .location-tag,
+        .guest-total,
+        .tree-name,
+        .tree-number {
+          font-size: 10px;
+        }
+        .hero {
+          padding: 48px 16px 60px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .tree_page {
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+        .stats {
+          gap: 10px;
+        }
+        .stat {
+          padding: 16px;
+        }
+        .stat .value {
+          font-size: 25px;
+        }
+        .controls {
+          grid-template-columns: 1fr;
+          padding: 13px;
+        }
+        .refresh {
+          grid-column: auto;
+        }
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 7px;
+        }
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+        .modal-content {
+          padding: 14px;
+        }
+        .modal-meta {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer {
+          flex-direction: column;
+        }
+
+        /* List layout on mobile: stack */
+        .grid.layout-list .card {
+          flex-direction: column;
+        }
+        .grid.layout-list .photo {
+          width: 100%;
+          flex: 0 0 auto;
+          aspect-ratio: 16/10;
+        }
+        .grid.layout-compact {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .grid.layout-masonry {
+          column-count: 1;
+        }
+      }
+      /* Property Summary */
+      .property-summary {
+        margin-top: 15px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: var(--shadow-sm);
+      }
+      .property-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 10px;
+      }
+      
+      .property-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--green-50);
+        padding: 10px;
+        transition: 0.2s ease;
+      }
+      .property-name {
+        color: var(--green-950);
+        font-weight: 850;
+        font-size: 15px;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+      }
+      
+      .property-numbers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .property-number {
+        background: #fff;
+        padding: 8px 7px;
+        text-align: center;
+      }
+      
+      .property-number .number {
+        display: block;
+        color: var(--green-900);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      
+      .property-number .label {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 750;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      
+      .property-loading {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: var(--muted);
+        padding: 20px;
+      }
+      
+      @media (max-width: 1000px) {
+        .property-summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      
+      @media (max-width: 650px) {
+        .property-summary {
+          padding: 13px;
+        }
+      
+        .property-summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 7px;
+        }
+      
+        .property-card {
+          padding: 10px;
+        }
+      
+        .property-name {
+          font-size: 12px;
+        }
+      
+        .property-number .number {
+          font-size: 17px;
+        }
+      
+        .property-number .label {
+          font-size: 8px;
+        }
+      }
+    </style>
+    <style>
+      /* Country carousel – compact, auto-sliding, infinite loop, drag/wheel scroll */
+      .country-carousel {
+        padding-top:2px;
+        position: relative;
+      }
+      .carousel-track-wrapper {
+        overflow: hidden;
+        position: relative;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: pan-y;
+      }
+      .carousel-track-wrapper.dragging {
+        cursor: grabbing;
+      }
+      .carousel-track-wrapper.dragging .carousel-track {
+        transition: none !important;
+      }
+      .carousel-track {
+        display: flex;
+        gap: 10px;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        padding-top: 5px;
+        will-change: transform;
+      }
+      .country-mini-card {
+        flex: 0 0 auto;
+        width: 110px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        padding: 5px;
+        text-align: center;
+        transition: box-shadow 0.2s;
+      }
+      .country-mini-card:hover {
+        box-shadow: 0 8px 18px rgba(19,63,44,0.08);
+      }
+      .country-flag {
+        font-size: 30px;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .country-name {
+        font-size: 11px;
+        font-weight: 750;
+        color: var(--green-950);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 4px;
+      }
+      .country-stats {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        font-size: 10px;
+        color: var(--muted);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .country-stats .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .country-stats .stat-number {
+        font-weight: 700;
+        color: var(--green-800);
+        font-size: 12px;
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 5;
+        color: var(--green-800);
+        transition: background 0.2s;
+        padding: 0;
+        line-height: 1;
+      }
+      .carousel-btn:hover {
+        background: var(--green-50);
+      }
+      .carousel-btn.prev {
+        left: 2px;
+      }
+      .carousel-btn.next {
+        right: 2px;
+      }
+      .carousel-track-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+      @media (max-width: 650px) {
+        .country-mini-card {
+          width: 94px;
+          padding: 8px 4px 6px;
+        }
+        .country-flag {
+          font-size: 18px;
+        }
+        .country-name {
+          font-size: 10px;
+        }
+        .country-stats {
+          font-size: 9px;
+          gap: 5px;
+        }
+        .country-stats .stat-number {
+          font-size: 10px;
+        }
+        .carousel-btn {
+          width: 24px;
+          height: 24px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow"> <a href="https://www.staynature.com/" target="_blank" rel="noopener" style="color: var(--green-50);text-decoration: none;">🌱 Stay Nature</a> • Cambodia</div>
+          <h1>Growing a Greener Tomorrow with Stay Nature</h1>
+          <p>
+            Every tree tells a story. Explore the guests who planted with Stay
+            Nature, the trees they contributed, and the memories they shared
+            along the way.
+          </p>
+          <h2 style="margin-bottom: 0; color: #e8df3f">
+            This Planting Tree data have only in Form Register
+          </h2>
+          <h3 style="margin-top: 10px; color: #e8df3f">
+            Start From 1 May 2026 - Present
+          </h3>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="tree-mark">🌳</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="tree_page">
+      <section class="stats" aria-label="Tree planting statistics">
+        <div class="stat">
+          <div class="value" id="statRecords">—</div>
+          <div class="label">Planting Stories</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="statGuests">—</div>
+          <div class="label">Guest Totals</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="statTrees">—</div>
+          <div class="label">Trees Planted</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="statCountries">—</div>
+          <div class="label">Countries</div>
+        </div>
+      </section>
+      <!-- Property Summary -->
+      <section class="property-summary" aria-label="Tree planting summary by property">
+        <div class="property-summary-grid" id="propertySummary">
+          <div class="property-loading">
+            🌿 Loading property totals…
+          </div>
+        </div>
+        <div class="controls">
+            <div class="field">
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search guest, country, tree or story…"
+                autocomplete="off"
+              />
+            </div>
+    
+            <div class="field">
+              <select id="locationFilter">
+                <option value="">All locations</option>
+              </select>
+            </div>
+    
+            <div class="field">
+              <select id="countryFilter">
+                <option value="">All countries</option>
+              </select>
+            </div>
+    
+            <div class="field date-filter-field">
+              <span class="date-filter-label">From</span>
+              <input
+                id="dateFrom"
+                type="date"
+                aria-label="From planting date"
+                title="From planting date"
+              />
+            </div>
+    
+            <div class="field date-filter-field">
+              <span class="date-filter-label">To</span>
+              <input
+                id="dateTo"
+                type="date"
+                aria-label="To planting date"
+                title="To planting date"
+              />
+            </div>
+    
+            <div class="field">
+              <select id="sortSelect">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="name">Guest name A–Z</option>
+                <option value="trees">Most trees</option>
+              </select>
+            </div>
+    
+            <button class="refresh" type="button" onclick="loadData()">
+              ↻ 
+            </button>
+          </div>
+          <!-- Country summary carousel -->
+          <div class="country-carousel" id="countryCarousel">
+            <div class="carousel-track-wrapper" id="carouselWrapper">
+              <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous countries">‹</button>
+              <div class="carousel-track" id="carouselTrack">
+                <!-- country mini cards will be injected here -->
+              </div>
+              <button class="carousel-btn next" id="carouselNext" aria-label="Next countries">›</button>
+            </div>
+          </div>
+      </section>
+      <div class="section-head">
+        <div>
+          <h2>Tree Planting Stories</h2>
+          <p>Guest contributions from across the Stay Nature community.</p>
+        </div>
+        <div class="section-head-right">
+          <div class="view-switcher" id="viewSwitcher" role="group" aria-label="Layout view">
+            <button class="view-btn" data-view="grid" type="button" title="Grid view" aria-label="Grid view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+              </svg>
+            </button>
+            <button class="view-btn" data-view="list" type="button" title="List view" aria-label="List view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </button>
+            <button class="view-btn active" data-view="compact" type="button" title="Compact view" aria-label="Compact view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="5" height="5"></rect>
+                <rect x="10" y="3" width="5" height="5"></rect>
+                <rect x="17" y="3" width="5" height="5"></rect>
+                <rect x="3" y="10" width="5" height="5"></rect>
+                <rect x="10" y="10" width="5" height="5"></rect>
+                <rect x="17" y="10" width="5" height="5"></rect>
+                <rect x="3" y="17" width="5" height="5"></rect>
+                <rect x="10" y="17" width="5" height="5"></rect>
+                <rect x="17" y="17" width="5" height="5"></rect>
+              </svg>
+            </button>
+            <button class="view-btn" data-view="masonry" type="button" title="Masonry view" aria-label="Masonry view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </button>
+          </div>
+          <div class="result-count" id="resultCount">Loading…</div>
+        </div>
+      </div>
+
+      <section class="grid layout-grid" id="grid">
+        <div class="state">
+          <div class="icon">🌿</div>
+          <strong>Loading tree planting stories…</strong>
+          <span>Please wait a moment.</span>
+        </div>
+      </section>
+
+      <div class="load-more-wrap">
+        <button id="loadMoreBtn" class="load-more" type="button" hidden>
+          Show more stories
+        </button>
+      </div>
+
+      <footer class="footer">
+        <span>
+          <a href="https://www.staynature.com/" target="_blank" rel="noopener" style="font-weight: 600;color: var(--green-700);text-decoration: none;">Stay Nature</a> • Tree Planting Program</span>
+           <span style="font-weight: 600;color: var(--green-700);">Nature. Culture. Community</span>
+        <span>Thank you for helping Cambodia grow greener. 🌱</span>
+      </footer>
+    </main>
+
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-panel">
+        <div class="modal-top">
+          <div class="modal-title" id="modalTitle">Tree Planting Story</div>
+          <button
+            class="close-btn"
+            type="button"
+            id="closeModal"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </div>
+
+
+        <script>
+      /*
+    EXTERNAL WEBSITE:
+    Replace this URL with your deployed Apps Script Web App URL.
+    Keep ?api=1 at the end.
+  */
+      const API_URL =
+        "https://script.google.com/macros/s/AKfycbyUoL_Q-oc53VbxSngRmLkKAAHkVWaRUbcRTSF5hq43oH7tbUg_kQhTc93tfeQ2vQtctg/exec?api=1";
+
+      const PAGE_SIZE = 20;
+      let allData = [];
+      let filteredData = [];
+      let visibleCount = PAGE_SIZE;
+      let currentView = "compact";
+
+      const grid = document.getElementById("grid");
+      const resultCount = document.getElementById("resultCount");
+      const searchInput = document.getElementById("searchInput");
+      const locationFilter = document.getElementById("locationFilter");
+      const countryFilter = document.getElementById("countryFilter");
+      const dateFrom = document.getElementById("dateFrom");
+      const dateTo = document.getElementById("dateTo");
+      const sortSelect = document.getElementById("sortSelect");
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      const viewSwitcher = document.getElementById("viewSwitcher");
+
+      // Carousel elements
+      const carouselTrack = document.getElementById("carouselTrack");
+      const carouselWrapper = document.getElementById("carouselWrapper");
+      const carouselPrev = document.getElementById("carouselPrev");
+      const carouselNext = document.getElementById("carouselNext");
+      let carouselAutoInterval = null;
+      let carouselOriginalItems = [];
+      let carouselClones = [];
+      let carouselCurrentIndex = 0;
+      let carouselAnimating = false;
+      let carouselCardStep = 120;
+
+      function clean(value) {
+        return String(value ?? "").trim();
+      }
+      function formatCardDate(dateStr) {
+        if (!dateStr) return "";
+        try {
+          const date = new Date(dateStr);
+          if (isNaN(date.getTime())) return dateStr;
+          const day = date.getDate();
+          const month = date.toLocaleString("en-US", { month: "short" });
+          const year = date.getFullYear();
+          let hours = date.getHours();
+          const minutes = date.getMinutes().toString().padStart(2, "0");
+          const ampm = hours >= 12 ? "PM" : "AM";
+          hours = hours % 12;
+          hours = hours || 12;
+          return `${day} ${month} ${year} ${hours}:${minutes}${ampm}`;
+        } catch {
+          return dateStr;
+        }
+      }
+      function formatDate(dateStr) {
+        if (!dateStr) return "";
+        try {
+          const date = new Date(dateStr);
+          if (isNaN(date)) return dateStr;
+          const day = date.getDate();
+          const month = date.toLocaleString("en-US", { month: "long" });
+          const year = date.getFullYear();
+          let hours = date.getHours();
+          const minutes = date.getMinutes().toString().padStart(2, "0");
+          const ampm = hours >= 12 ? "PM" : "AM";
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+          return `${day} ${month} ${year} ${hours}:${minutes}${ampm}`;
+        } catch {
+          return dateStr;
+        }
+      }
+      function parsePlantingDate(value) {
+        const raw = clean(value);
+        if (!raw) return null;
+        const parsed = new Date(raw);
+        if (!Number.isNaN(parsed.getTime())) return parsed;
+        const match = raw.match(
+          /^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})(?:\s+(\d{1,2}):(\d{2})(?:\s*([AP]M))?)?/i,
+        );
+        if (!match) return null;
+        let [, day, month, year, hours = "0", minutes = "0", ampm = ""] = match;
+        let hour = Number(hours);
+        if (ampm) {
+          const marker = ampm.toUpperCase();
+          if (marker === "PM" && hour < 12) hour += 12;
+          if (marker === "AM" && hour === 12) hour = 0;
+        }
+        const result = new Date(
+          Number(year),
+          Number(month) - 1,
+          Number(day),
+          hour,
+          Number(minutes),
+          0,
+          0,
+        );
+        return Number.isNaN(result.getTime()) ? null : result;
+      }
+
+      function getFlag(country) {
+        if (!country) return "🌍";
+        const countryMap = {
+          afghanistan: "AF", albania: "AL", algeria: "DZ", andorra: "AD", angola: "AO",
+          "antigua and barbuda": "AG", argentina: "AR", armenia: "AM", australia: "AU",
+          austria: "AT", azerbaijan: "AZ", bahamas: "BS", bahrain: "BH", bangladesh: "BD",
+          barbados: "BB", belarus: "BY", belgium: "BE", belize: "BZ", benin: "BJ",
+          bhutan: "BT", bolivia: "BO", "bosnia and herzegovina": "BA", botswana: "BW",
+          brazil: "BR", brunei: "BN", bulgaria: "BG", "burkina faso": "BF", burundi: "BI",
+          "cabo verde": "CV", cambodia: "KH", khmer: "KH", cameroon: "CM", canada: "CA",
+          "central african republic": "CF", chad: "TD", chile: "CL", china: "CN",
+          colombia: "CO", comoros: "KM", congo: "CD", "costa rica": "CR", croatia: "HR",
+          cuba: "CU", cyprus: "CY", "czech republic": "CZ", czechia: "CZ", denmark: "DK",
+          djibouti: "DJ", dominica: "DM", "dominican republic": "DO", ecuador: "EC",
+          egypt: "EG", "el salvador": "SV", "equatorial guinea": "GQ", eritrea: "ER",
+          estonia: "EE", eswatini: "SZ", ethiopia: "ET", fiji: "FJ", finland: "FI",
+          france: "FR", gabon: "GA", gambia: "GM", georgia: "GE", germany: "DE",
+          ghana: "GH", greece: "GR", grenada: "GD", guatemala: "GT", guinea: "GN",
+          "guinea-bissau": "GW", guyana: "GY", haiti: "HT", honduras: "HN", hungary: "HU",
+          iceland: "IS", india: "IN", indonesia: "ID", iran: "IR", iraq: "IQ",
+          ireland: "IE", israel: "IL", italy: "IT", jamaica: "JM", japan: "JP",
+          jordan: "JO", kazakhstan: "KZ", kenya: "KE", kiribati: "KI", korea: "KR",
+          "south korea": "KR", kuwait: "KW", kyrgyzstan: "KG", laos: "LA", latvia: "LV",
+          lebanon: "LB", lesotho: "LS", liberia: "LR", libya: "LY", liechtenstein: "LI",
+          lithuania: "LT", luxembourg: "LU", madagascar: "MG", malawi: "MW",
+          malaysia: "MY", maldives: "MV", mali: "ML", malta: "MT", "marshall islands": "MH",
+          mauritania: "MR", mauritius: "MU", mexico: "MX", micronesia: "FM",
+          moldova: "MD", monaco: "MC", mongolia: "MN", montenegro: "ME", morocco: "MA",
+          mozambique: "MZ", myanmar: "MM", namibia: "NA", nauru: "NR", nepal: "NP",
+          netherlands: "NL", "new zealand": "NZ", nicaragua: "NI", niger: "NE",
+          nigeria: "NG", "north macedonia": "MK", norway: "NO", oman: "OM",
+          pakistan: "PK", palau: "PW", panama: "PA", "papua new guinea": "PG",
+          paraguay: "PY", peru: "PE", philippines: "PH", poland: "PL", portugal: "PT",
+          qatar: "QA", romania: "RO", russia: "RU", rwanda: "RW",
+          "saint kitts and nevis": "KN", "saint lucia": "LC",
+          "saint vincent and the grenadines": "VC", samoa: "WS", "san marino": "SM",
+          "sao tome and principe": "ST", "saudi arabia": "SA", senegal: "SN",
+          serbia: "RS", seychelles: "SC", "sierra leone": "SL", singapore: "SG",
+          slovakia: "SK", slovenia: "SI", "solomon islands": "SB", somalia: "SO",
+          "south africa": "ZA", spain: "ES", "sri lanka": "LK", sudan: "SD",
+          suriname: "SR", sweden: "SE", switzerland: "CH", syria: "SY", taiwan: "TW",
+          tajikistan: "TJ", tanzania: "TZ", thailand: "TH", "timor-leste": "TL",
+          togo: "TG", tonga: "TO", "trinidad and tobago": "TT", tunisia: "TN",
+          turkey: "TR", turkmenistan: "TM", tuvalu: "TV", uganda: "UG", ukraine: "UA",
+          "united arab emirates": "AE", uae: "AE", "united kingdom": "GB", uk: "GB",
+          "united states": "US", usa: "US", uruguay: "UY", uzbekistan: "UZ",
+          vanuatu: "VU", "vatican city": "VA", venezuela: "VE", vietnam: "VN",
+          yemen: "YE", zambia: "ZM", zimbabwe: "ZW",
+        };
+        const key = country.toLowerCase().trim();
+        let code = countryMap[key];
+        if (!code) {
+          for (const [name, c] of Object.entries(countryMap)) {
+            if (key.includes(name) || name.includes(key)) {
+              code = c;
+              break;
+            }
+          }
+        }
+        if (!code) return "🌍";
+        const codePoints = code.toUpperCase().split("").map((char) => 127397 + char.charCodeAt(0));
+        return String.fromCodePoint(...codePoints);
+      }
+      function esc(value) {
+        return clean(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function driveId(url) {
+        const value = clean(url);
+        let m = value.match(/[?&]id=([^&]+)/);
+        if (m) return m[1];
+        m = value.match(/\/d\/([^/]+)/);
+        return m ? m[1] : "";
+      }
+
+      function imageUrl(url) {
+        const id = driveId(url);
+        return id
+          ? `https://drive.google.com/thumbnail?id=${encodeURIComponent(id)}&sz=w1200`
+          : clean(url);
+      }
+
+      function getPhotos(item) {
+        return clean(item["Photo of Tree planting (3-5 picture)"])
+          .split(",")
+          .map((v) => v.trim())
+          .filter(Boolean);
+      }
+
+      function treeCount(item) {
+        const n = parseInt(
+          clean(item["Number of Trees Planted"]).replace(/[^\d]/g, ""),
+          10,
+        );
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      function guestCount(item) {
+        const raw = clean(item["Guest Totals:"]);
+        const match = raw.match(/\d+/);
+        return match ? parseInt(match[0], 10) : 0;
+      }
+
+      function guestName(item) {
+        return (
+          `${clean(item["Title"])} ${clean(item["Name"])}`.trim() || "Guest"
+        );
+      }
+
+      // ========== EVENT DETECTION - CHECKS Category OR Events FIELD ==========
+      function isEvent(item) {
+        const category = clean(item["Category"]).toLowerCase();
+        const events = clean(item["Events"]).toLowerCase();
+        return category === "event" || events === "event";
+      }
+
+      // ========== Get location for display ==========
+      // For events -> Event Location
+      // For regular guests -> Stay Location, fall back to "Stay Nature" if blank
+      function getDisplayLocation(item) {
+        if (isEvent(item)) {
+          return clean(item["Event Location"]) || "Event";
+        }
+        return clean(item["Stay Location"]) || "Stay Nature";
+      }
+
+      function singularPronouns(item) {
+        const title = clean(item["Title"]).toLowerCase().replaceAll(".", "").trim();
+        if (["mr", "mister", "sir"].includes(title)) {
+          return { subject: "he", possessive: "his", object: "him" };
+        }
+        if (["ms", "mrs", "miss", "madam", "madame"].includes(title)) {
+          return { subject: "she", possessive: "her", object: "her" };
+        }
+        return { subject: "they", possessive: "their", object: "them" };
+      }
+
+      function plantingWith(item) {
+        const total = guestCount(item);
+        const selected = clean(item["Planting Tree with:"]).toLowerCase();
+        const members = clean(item["Family or Group Members Name"]).toLowerCase();
+
+        if (selected) {
+          if (/\bsolo\b|\balone\b/.test(selected)) return "Solo";
+          if (total <= 1) return "Solo";
+          if (/\bwife\b/.test(selected)) return "Wife";
+          if (/\bhusband\b/.test(selected)) return "Husband";
+          if (/\bfather\b|\bdad\b/.test(selected)) return "Father";
+          if (/\bmother\b|\bmom\b|\bmum\b/.test(selected)) return "Mother";
+          if (/\bboyfriend\b|\bbf\b/.test(selected)) return "Boyfriend";
+          if (/\bgirlfriend\b|\bgf\b/.test(selected)) return "Girlfriend";
+          if (/\bfriends?\b|\bbest friend\b/.test(selected)) return "Friends";
+          if (/\bfamily\b/.test(selected)) return "Family";
+          if (/\bgroup\b|\bteam\b|\btravel group\b/.test(selected)) return "Group";
+          if (/\bother\b/.test(selected)) return "Other";
+        }
+
+        if (total <= 1) return "Solo";
+        if (/\bsolo\b|\balone\b/.test(members)) return "Solo";
+        if (/\bwife\b/.test(members)) return "Wife";
+        if (/\bhusband\b/.test(members)) return "Husband";
+        if (/\bfather\b|\bdad\b/.test(members)) return "Father";
+        if (/\bmother\b|\bmom\b|\bmum\b/.test(members)) return "Mother";
+        if (/\bboyfriend\b|\bbf\b/.test(members)) return "Boyfriend";
+        if (/\bgirlfriend\b|\bgf\b/.test(members)) return "Girlfriend";
+        if (/\bfriends?\b|\bbest friend\b/.test(members)) return "Friends";
+        if (/\bfamily\b|\bwife\b|\bhusband\b|\bspouse\b|\bpartner\b|\bmother\b|\bfather\b|\bsister\b|\bbrother\b|\bson\b|\bdaughter\b/.test(members)) {
+          return "Family";
+        }
+        if (/\bgroup\b|\bteam\b|\btravel group\b/.test(members)) return "Group";
+        if (total > 1) return "Group";
+        return "Solo";
+      }
+
+      function guestLanguage(item) {
+        const total = guestCount(item);
+        const relation = plantingWith(item);
+        const singular = singularPronouns(item);
+        const isGroup = total > 1 || relation !== "Solo";
+
+        if (!isGroup) {
+          return {
+            subject: singular.subject,
+            possessive: singular.possessive,
+            object: singular.object,
+            welcomeSuffix: "",
+            thankYouTarget: "you",
+            treeOwner: singular.possessive,
+            plantingWith: "Solo",
+          };
+        }
+
+        let welcomeSuffix = " and " + singular.possessive + " group";
+        let thankYouTarget = "you and your group";
+
+        switch (relation) {
+          case "Family": welcomeSuffix = " and " + singular.possessive + " family"; thankYouTarget = "you and your family"; break;
+          case "Friends": welcomeSuffix = " and " + singular.possessive + " friends"; thankYouTarget = "you and your friends"; break;
+          case "Wife": welcomeSuffix = " and " + singular.possessive + " wife"; thankYouTarget = "you and your wife"; break;
+          case "Husband": welcomeSuffix = " and " + singular.possessive + " husband"; thankYouTarget = "you and your husband"; break;
+          case "Father": welcomeSuffix = " and " + singular.possessive + " father"; thankYouTarget = "you and your father"; break;
+          case "Mother": welcomeSuffix = " and " + singular.possessive + " mother"; thankYouTarget = "you and your mother"; break;
+          case "Boyfriend": welcomeSuffix = " and " + singular.possessive + " boyfriend"; thankYouTarget = "you and your boyfriend"; break;
+          case "Girlfriend": welcomeSuffix = " and " + singular.possessive + " girlfriend"; thankYouTarget = "you and your girlfriend"; break;
+          case "Other": welcomeSuffix = " and " + singular.possessive + " companions"; thankYouTarget = "you and your companions"; break;
+          case "Group":
+          default: welcomeSuffix = " and " + singular.possessive + " group"; thankYouTarget = "you and your group"; break;
+        }
+
+        return {
+          subject: "they",
+          possessive: "their",
+          object: "them",
+          welcomeSuffix,
+          thankYouTarget,
+          treeOwner: "their",
+          plantingWith: relation,
+        };
+      }
+
+      function uniqueSorted(values) {
+        const map = new Map();
+        values.forEach((value) => {
+          const v = clean(value);
+          if (!v) return;
+          const key = v.toLocaleLowerCase();
+          if (!map.has(key)) map.set(key, v);
+        });
+        return [...map.values()].sort((a, b) => a.localeCompare(b));
+      }
+
+      function buildCountryTotals() {
+        const map = new Map();
+        allData.forEach((item) => {
+          const country = clean(item["Your Country"]) || "Unknown";
+          if (!map.has(country)) {
+            map.set(country, { guests: 0, trees: 0 });
+          }
+          const entry = map.get(country);
+          entry.guests += guestCount(item);
+          entry.trees += treeCount(item);
+        });
+        return map;
+      }
+
+      function populateFilters() {
+        const locations = uniqueSorted(allData.map((x) => getDisplayLocation(x)));
+        const countryTotals = buildCountryTotals();
+        const countries = [...countryTotals.keys()].sort((a, b) => a.localeCompare(b));
+
+        locationFilter.innerHTML =
+          `<option value="">All locations</option>` +
+          locations.map((v) => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
+
+        countryFilter.innerHTML =
+          `<option value="">All countries</option>` +
+          countries.map((v) => {
+            const data = countryTotals.get(v);
+            const flag = getFlag(v);
+            const label = `${flag} ${v} (G${data.guests},T${data.trees})`;
+            return `<option value="${esc(v)}">${esc(label)}</option>`;
+          }).join("");
+      }
+
+      function updateStats() {
+        document.getElementById("statRecords").textContent = allData.length.toLocaleString();
+        document.getElementById("statGuests").textContent = allData
+          .reduce((sum, item) => sum + guestCount(item), 0).toLocaleString();
+        document.getElementById("statTrees").textContent = allData
+          .reduce((sum, item) => sum + treeCount(item), 0).toLocaleString();
+        document.getElementById("statCountries").textContent = uniqueSorted(
+          allData.map((x) => x["Your Country"]),
+        ).length.toLocaleString();
+      }
+
+      function updatePropertySummary() {
+        const container = document.getElementById("propertySummary");
+        if (!container) return;
+        const propertyMap = new Map();
+        allData.forEach((item) => {
+          // Option B: Include events. Blank Stay Location -> "Stay Nature"
+          const property = clean(item["Stay Location"]) || "Stay Nature";
+          const guests = guestCount(item);
+          const trees = treeCount(item);
+          if (!propertyMap.has(property)) propertyMap.set(property, { guests: 0, trees: 0 });
+          const current = propertyMap.get(property);
+          current.guests += guests;
+          current.trees += trees;
+        });
+        const properties = [...propertyMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+        if (!properties.length) {
+          container.innerHTML = `<div class="property-loading">No property data available.</div>`;
+          return;
+        }
+        container.innerHTML = properties.map(([property, data]) => `
+          <div class="property-card">
+            <div class="property-name">${esc(property)}</div>
+            <div class="property-numbers">
+              <div class="property-number">
+                <span class="number">${data.guests.toLocaleString()}</span>
+                <span class="label">Guests</span>
+              </div>
+              <div class="property-number">
+                <span class="number">${data.trees.toLocaleString()}</span>
+                <span class="label">Trees</span>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      // ---------- Country carousel ----------
+      function buildCountryCarousel() {
+        const countryTotals = buildCountryTotals();
+        carouselOriginalItems = [...countryTotals.entries()]
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([country, data]) => ({
+            country,
+            guests: data.guests,
+            trees: data.trees,
+          }));
+        renderCarousel();
+      }
+
+      function countryCardHtml(item) {
+        return `
+          <div class="country-mini-card">
+            <div class="country-flag">${getFlag(item.country)}</div>
+            <div class="country-name" title="${esc(item.country)}">${esc(item.country)}</div>
+            <div class="country-stats">
+              <div class="stat-item">
+                <span class="stat-number">${item.guests}</span>
+                <span>Guest${item.guests !== 1 ? 's' : ''}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">${item.trees}</span>
+                <span>Tree${item.trees !== 1 ? 's' : ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderCarousel() {
+        if (!carouselTrack) return;
+        const originalHtml = carouselOriginalItems.map(countryCardHtml).join("");
+        carouselTrack.innerHTML = originalHtml + originalHtml + originalHtml;
+        carouselClones = carouselTrack.children;
+        carouselCurrentIndex = carouselOriginalItems.length;
+        requestAnimationFrame(() => {
+          recalcCarouselStep();
+          setCarouselTransform(carouselCurrentIndex * carouselCardStep, false);
+        });
+        startCarouselAuto();
+      }
+
+      function recalcCarouselStep() {
+        if (carouselClones.length === 0) return;
+        const first = carouselClones[0];
+        const second = carouselClones[1];
+        if (first && second) {
+          carouselCardStep = second.offsetLeft - first.offsetLeft;
+        }
+      }
+
+      function setCarouselTransform(offset, animate = true) {
+        if (!carouselTrack) return;
+        if (!animate) {
+          carouselTrack.style.transition = "none";
+        } else {
+          carouselTrack.style.transition = "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
+        }
+        carouselTrack.style.transform = `translateX(-${offset}px)`;
+        if (!animate) {
+          void carouselTrack.offsetWidth;
+          carouselTrack.style.transition = "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
+        }
+      }
+
+      function goToNextSlide() {
+        if (carouselAnimating) return;
+        if (carouselOriginalItems.length === 0) return;
+        carouselAnimating = true;
+        carouselCurrentIndex += 1;
+        const offset = carouselCurrentIndex * carouselCardStep;
+        setCarouselTransform(offset, true);
+        const totalOriginals = carouselOriginalItems.length;
+        if (carouselCurrentIndex >= totalOriginals * 2) {
+          setTimeout(() => {
+            carouselCurrentIndex -= totalOriginals;
+            setCarouselTransform(carouselCurrentIndex * carouselCardStep, false);
+          }, 620);
+        }
+        setTimeout(() => { carouselAnimating = false; }, 650);
+      }
+
+      function goToPrevSlide() {
+        if (carouselAnimating) return;
+        if (carouselOriginalItems.length === 0) return;
+        carouselAnimating = true;
+        carouselCurrentIndex -= 1;
+        if (carouselCurrentIndex < 0) {
+          const totalOriginals = carouselOriginalItems.length;
+          carouselCurrentIndex += totalOriginals;
+          setCarouselTransform(carouselCurrentIndex * carouselCardStep, false);
+          void carouselTrack.offsetWidth;
+          setTimeout(() => {
+            carouselCurrentIndex -= 1;
+            setCarouselTransform(carouselCurrentIndex * carouselCardStep, true);
+          }, 20);
+          setTimeout(() => { carouselAnimating = false; }, 700);
+          return;
+        }
+        setCarouselTransform(carouselCurrentIndex * carouselCardStep, true);
+        setTimeout(() => { carouselAnimating = false; }, 650);
+      }
+
+      function startCarouselAuto() {
+        if (carouselAutoInterval) clearInterval(carouselAutoInterval);
+        carouselAutoInterval = setInterval(() => { goToNextSlide(); }, 3500);
+      }
+
+      function resetCarouselAuto() {
+        if (carouselAutoInterval) {
+          clearInterval(carouselAutoInterval);
+          startCarouselAuto();
+        }
+      }
+
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragStartOffset = 0;
+      let dragMoved = false;
+
+      function setDragTransform(offset) {
+        carouselTrack.style.transition = "none";
+        carouselTrack.style.transform = `translateX(-${offset}px)`;
+      }
+
+      function onDragStart(e) {
+        if (e.type === "mousedown" && e.button !== 0) return;
+        isDragging = true;
+        dragMoved = false;
+        const clientX = e.type.startsWith("touch") ? e.touches[0].clientX : e.clientX;
+        dragStartX = clientX;
+        dragStartOffset = carouselCurrentIndex * carouselCardStep;
+        carouselWrapper.classList.add("dragging");
+        if (carouselAutoInterval) clearInterval(carouselAutoInterval);
+      }
+
+      function onDragMove(e) {
+        if (!isDragging) return;
+        const clientX = e.type.startsWith("touch") ? e.touches[0].clientX : e.clientX;
+        const deltaX = clientX - dragStartX;
+        if (Math.abs(deltaX) > 3) dragMoved = true;
+        setDragTransform(dragStartOffset - deltaX);
+        if (e.type.startsWith("touch")) e.preventDefault();
+      }
+
+      function onDragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        carouselWrapper.classList.remove("dragging");
+        const clientX = e.type.startsWith("touch")
+          ? (e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : dragStartX)
+          : e.clientX;
+        const deltaX = clientX - dragStartX;
+        const step = carouselCardStep;
+        const currentOffset = dragStartOffset - deltaX;
+        let newIndex = Math.round(currentOffset / step);
+        const totalOriginals = carouselOriginalItems.length;
+        if (totalOriginals > 0) {
+          if (newIndex < 0) newIndex += totalOriginals;
+          if (newIndex >= totalOriginals * 3) newIndex -= totalOriginals;
+        }
+        carouselCurrentIndex = newIndex;
+        setCarouselTransform(carouselCurrentIndex * step, true);
+        setTimeout(() => {
+          const totalO = carouselOriginalItems.length;
+          if (carouselCurrentIndex < totalO || carouselCurrentIndex >= totalO * 2) {
+            const normalized = ((carouselCurrentIndex % totalO) + totalO) % totalO;
+            carouselCurrentIndex = normalized + totalO;
+            setCarouselTransform(carouselCurrentIndex * carouselCardStep, false);
+          }
+        }, 620);
+        resetCarouselAuto();
+      }
+
+      let wheelTimeout = null;
+      function onWheel(e) {
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        if (Math.abs(delta) < 1) return;
+        e.preventDefault();
+        if (carouselAutoInterval) clearInterval(carouselAutoInterval);
+        const currentOffset = carouselCurrentIndex * carouselCardStep;
+        const newOffset = currentOffset + delta;
+        setDragTransform(newOffset);
+        clearTimeout(wheelTimeout);
+        wheelTimeout = setTimeout(() => {
+          const step = carouselCardStep;
+          let newIndex = Math.round(newOffset / step);
+          const totalOriginals = carouselOriginalItems.length;
+          if (totalOriginals > 0) {
+            const normalized = ((newIndex % totalOriginals) + totalOriginals) % totalOriginals;
+            newIndex = normalized + totalOriginals;
+          }
+          carouselCurrentIndex = newIndex;
+          setCarouselTransform(carouselCurrentIndex * step, true);
+          setTimeout(() => {
+            const totalO = carouselOriginalItems.length;
+            if (carouselCurrentIndex < totalO || carouselCurrentIndex >= totalO * 2) {
+              const normalized = ((carouselCurrentIndex % totalO) + totalO) % totalO;
+              carouselCurrentIndex = normalized + totalO;
+              setCarouselTransform(carouselCurrentIndex * carouselCardStep, false);
+            }
+          }, 620);
+          resetCarouselAuto();
+        }, 120);
+      }
+
+      function attachCarouselDragEvents() {
+        if (!carouselWrapper) return;
+        carouselWrapper.addEventListener("mousedown", onDragStart);
+        window.addEventListener("mousemove", onDragMove);
+        window.addEventListener("mouseup", onDragEnd);
+        carouselWrapper.addEventListener("touchstart", onDragStart, { passive: true });
+        carouselWrapper.addEventListener("touchmove", onDragMove, { passive: false });
+        carouselWrapper.addEventListener("touchend", onDragEnd);
+        carouselWrapper.addEventListener("touchcancel", onDragEnd);
+        carouselWrapper.addEventListener("wheel", onWheel, { passive: false });
+        carouselWrapper.addEventListener("click", (e) => {
+          if (dragMoved) {
+            e.preventDefault();
+            e.stopPropagation();
+            dragMoved = false;
+          }
+        }, true);
+      }
+
+      if (carouselPrev && carouselNext) {
+        carouselPrev.addEventListener('click', () => { goToPrevSlide(); resetCarouselAuto(); });
+        carouselNext.addEventListener('click', () => { goToNextSlide(); resetCarouselAuto(); });
+        carouselWrapper.addEventListener('mouseenter', () => {
+          if (carouselAutoInterval) clearInterval(carouselAutoInterval);
+        });
+        carouselWrapper.addEventListener('mouseleave', () => { startCarouselAuto(); });
+        window.addEventListener('resize', () => {
+          recalcCarouselStep();
+          setCarouselTransform(carouselCurrentIndex * carouselCardStep, false);
+        });
+        attachCarouselDragEvents();
+      }
+
+      // ============== VIEW SWITCHER ==============
+      function applyView(view) {
+        currentView = view;
+        grid.classList.remove("layout-grid", "layout-list", "layout-compact", "layout-masonry");
+        grid.classList.add(`layout-${view}`);
+        viewSwitcher.querySelectorAll(".view-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.view === view);
+        });
+        try { localStorage.setItem("staynature_view", view); } catch (e) {}
+      }
+
+      (function initView() {
+        let saved = "compact";
+        try { saved = localStorage.getItem("staynature_view") || "compact"; } catch (e) {}
+        if (!["grid", "list", "compact", "masonry"].includes(saved)) saved = "compact";
+        applyView(saved);
+      })();
+
+      viewSwitcher.addEventListener("click", (e) => {
+        const btn = e.target.closest(".view-btn");
+        if (!btn) return;
+        applyView(btn.dataset.view);
+      });
+
+      // ============== FILTERS + RENDER ==============
+      function applyFilters(resetPage = true) {
+        const q = clean(searchInput.value).toLocaleLowerCase();
+        const location = clean(locationFilter.value).toLocaleLowerCase();
+        const country = clean(countryFilter.value).toLocaleLowerCase();
+        const fromValue = clean(dateFrom.value);
+        const toValue = clean(dateTo.value);
+        const fromDate = fromValue ? new Date(`${fromValue}T00:00:00`) : null;
+        const toDate = toValue ? new Date(`${toValue}T23:59:59.999`) : null;
+
+        filteredData = allData
+          .map((item, index) => ({ item, index }))
+          .filter(({ item }) => {
+            const haystack = [
+              item["Name"], item["Your Country"], getDisplayLocation(item),
+              item["Room"], item["Guest Totals:"], item["Family or Group Members Name"],
+              item["Type of Tree Planted"], item["Comments, Request or Share Your Story"],
+              item["Descripton"], item["Event Location"],
+            ].map(clean).join(" ").toLocaleLowerCase();
+            const itemLocation = getDisplayLocation(item).toLocaleLowerCase();
+            const itemCountry = clean(item["Your Country"]).toLocaleLowerCase();
+            const itemDate = parsePlantingDate(item["Tree Planting Date and Time"]);
+            const passesDate =
+              (!fromDate && !toDate) ||
+              (itemDate && (!fromDate || itemDate >= fromDate) && (!toDate || itemDate <= toDate));
+            return (
+              (!q || haystack.includes(q)) &&
+              (!location || itemLocation === location) &&
+              (!country || itemCountry === country) &&
+              passesDate
+            );
+          });
+
+        switch (sortSelect.value) {
+          case "oldest": filteredData.sort((a, b) => a.index - b.index); break;
+          case "name": filteredData.sort((a, b) => guestName(a.item).localeCompare(guestName(b.item))); break;
+          case "trees": filteredData.sort((a, b) => treeCount(b.item) - treeCount(a.item)); break;
+          default: filteredData.sort((a, b) => b.index - a.index);
+        }
+        filteredData = filteredData.map((x) => x.item);
+        if (resetPage) visibleCount = PAGE_SIZE;
+        render();
+      }
+
+      function render() {
+        resultCount.textContent = `${filteredData.length.toLocaleString()} ${filteredData.length === 1 ? "story" : "stories"}`;
+        if (!filteredData.length) {
+          grid.innerHTML = `
+            <div class="state">
+              <div class="icon">🔎</div>
+              <strong>No stories found</strong>
+              <span>Try a different search or filter.</span>
+            </div>`;
+          loadMoreBtn.hidden = true;
+          return;
+        }
+        const visible = filteredData.slice(0, visibleCount);
+        grid.innerHTML = visible.map((item, i) => cardHtml(item, i)).join("");
+        grid.querySelectorAll("[data-index]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            openModal(visible[Number(btn.dataset.index)]);
+          });
+        });
+        loadMoreBtn.hidden = visibleCount >= filteredData.length;
+      }
+
+      function cardHtml(item, index) {
+        const photos = getPhotos(item);
+        const firstPhoto = photos[0] ? imageUrl(photos[0]) : "";
+        const isEventItem = isEvent(item);
+        const location = getDisplayLocation(item);
+        const country = clean(item["Your Country"]) || "Guest";
+        const tree = clean(item["Type of Tree Planted"]) || "Tree";
+        const date = clean(item["Tree Planting Date and Time"]);
+        const count = treeCount(item);
+        const guests = clean(item["Guest Totals:"]) || "—";
+        const room = clean(item["Room"]) || "—";
+
+        return `
+      <article class="card" style="margin: 0;padding-bottom:0;">
+        <div class="photo">
+          ${firstPhoto
+            ? `<img src="${esc(firstPhoto)}" alt="Tree planting by ${esc(guestName(item))}" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+               <div class="photo-placeholder" style="display:none">🌱</div>`
+            : `<div class="photo-placeholder">🌱</div>`}
+          ${photos.length > 1 ? `<div class="photo-count">📷 ${photos.length}</div>` : ""}
+          <div class="location-tag">📍 ${esc(location)}</div>
+          <div class="tree-badge guest-total">👥 ${esc(guests)} ${parseInt(guests) === 1 ? "Guest" : "Guests"}</div>
+        </div>
+
+        <div class="card-body">
+          <div class="person">
+            <div><h3>${esc(guestName(item))}</h3></div>
+            <div class="country"><span class="flag">${getFlag(country)}</span> ${esc(country)}</div>
+          </div>
+         <div class="guest-date">
+            ${date ? `<div class="date">Date: ${esc(formatCardDate(date))}</div>` : ""}
+            <div class="room-number">
+                <span>Room:</span>
+                <strong>${esc(room)}</strong>
+            </div>
+            </div>
+          <div class="tree-info">
+            <div class="tree-name">${esc(tree)}</div>
+            <div class="tree-number">${count || 1} ${count === 1 ? "tree" : "trees"}🌱</div>
+          </div>
+          <div class="card-actions">
+            <button class="details-btn" type="button" data-index="${index}">
+              View story & photos
+            </button>
+          </div>
+        </div>
+      </article>`;
+      }
+
+      function openModal(item) {
+        const photos = getPhotos(item);
+        const isEventItem = isEvent(item);
+        const story = isEventItem
+          ? clean(item["Descripton"]) || "Event details will be shared soon."
+          : clean(item["Comments, Request or Share Your Story"]) || "Thank you for sharing the beauty of nature with us 🙏🏻";
+        const location = getDisplayLocation(item);
+        const country = clean(item["Your Country"]) || "—";
+        const tree = clean(item["Type of Tree Planted"]) || "—";
+        const date = clean(item["Tree Planting Date and Time"]) || "—";
+        const room = clean(item["Room"]) || "—";
+        const guests = clean(item["Guest Totals:"]) || "—";
+        const count = treeCount(item) || 1;
+        const name = guestName(item);
+        const language = guestLanguage(item);
+        const plantingGroup = language.plantingWith;
+
+        document.getElementById("modalTitle").textContent = name;
+
+        if (isEventItem) {
+          document.getElementById("modalContent").innerHTML = `
+            ${photos.length ? `
+              <div class="gallery">
+                ${photos.map((url) => `
+                  <img src="${esc(imageUrl(url))}" alt="Tree planting photo" loading="lazy" onerror="this.style.display='none'">
+                `).join("")}
+              </div>` : `
+              <div class="state">
+                <div class="icon">🌱</div>
+                <strong>No public photo available</strong>
+              </div>`}
+
+            <div class="modal-meta">
+              <div class="meta-box">
+                <span>Country:</span>
+                <strong><span class="flag">${getFlag(country)}</span> ${esc(country)}</strong>
+              </div>
+              <div class="meta-box"><span>Event Location:</span><strong>${esc(location)}</strong></div>
+              <div class="meta-box"><span>Guest Totals:</span><strong>${esc(guests)}</strong></div>
+              <div class="meta-box"><span>Tree:</span><strong>${esc(tree)}</strong></div>
+              <div class="meta-box"><span>Trees Planted:</span><strong>${count}</strong></div>
+            </div>
+
+            <div class="modal-meta" style="grid-template-columns:1fr">
+              <div class="meta-box">
+                <span>Planting Date & Time:</span>
+                <strong>${esc(formatDate(date))}</strong>
+              </div>
+            </div>
+
+            <div class="full-story"><span>Description event:</span><br> ${esc(story)}</div>
+          `;
+        } else {
+          document.getElementById("modalContent").innerHTML = `
+            ${photos.length ? `
+              <div class="gallery">
+                ${photos.map((url) => `
+                  <img src="${esc(imageUrl(url))}" alt="Tree planting photo" loading="lazy" onerror="this.style.display='none'">
+                `).join("")}
+              </div>` : `
+              <div class="state">
+                <div class="icon">🌱</div>
+                <strong>No public photo available</strong>
+              </div>`}
+
+            <div class="modal-meta">
+              <div class="meta-box">
+                <span>Country:</span>
+                <strong><span class="flag">${getFlag(country)}</span> ${esc(country)}</strong>
+              </div>
+              <div class="meta-box"><span>Stay Location:</span><strong>${esc(location)}</strong></div>
+              <div class="meta-box"><span>Room:</span><strong>${esc(room)}</strong></div>
+              <div class="meta-box"><span>Guest Totals:</span><strong>${esc(guests)}</strong></div>
+              <div class="meta-box">
+                <span>Planting Tree with:</span>
+                <strong class="planting-with">👥 ${esc(plantingGroup)}</strong>
+              </div>
+              <div class="meta-box"><span>Tree:</span><strong>${esc(tree)}</strong></div>
+              <div class="meta-box"><span>Trees Planted:</span><strong>${count}</strong></div>
+            </div>
+
+            <div class="modal-meta" style="grid-template-columns:1fr">
+              <div class="meta-box">
+                <span>Planting Date & Time:</span>
+                <strong>${esc(formatDate(date))}</strong>
+              </div>
+            </div>
+
+            <div class="full-story"><span>Guest Comments & Share Story:</span><br> ${esc(story)}</div>
+
+            <div class="modal-welcome">
+              <p class="welcome-line">
+                We had the pleasure of welcoming ${esc(name)} ${esc(language.welcomeSuffix)}
+                from ${esc(country)} ${getFlag(country)}.
+              </p>
+              <p>
+                During ${esc(language.possessive)} stay, ${esc(language.subject)} joined us in planting a tree—a simple yet meaningful
+                gesture that reflects our shared commitment to sustainability and community.
+                This tree will continue to grow in Cambodia, carrying the memory of
+                ${esc(language.possessive)} visit and our shared promise to protect nature for future generations.
+              </p>
+              <p class="give-back">At StayNature, every stay gives back.</p>
+              <p>
+                Thank you for choosing StayNature Hotels, and we hope
+                ${esc(language.thankYouTarget)} return soon to watch ${esc(language.treeOwner)} tree grow.
+              </p>
+              <div class="signature">
+                <strong>StayNature Group</strong>
+                <span>Nature. Culture. Community.</span>
+              </div>
+            </div>
+          `;
+        }
+        document.getElementById("modal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function showLoadError(message) {
+        grid.innerHTML = `
+          <div class="state error">
+            <div class="icon">⚠️</div>
+            <strong>Unable to load the tree planting data</strong>
+            <span>${esc(message)}</span>
+          </div>`;
+        resultCount.textContent = "Load error";
+      }
+
+      function handleData(data) {
+        allData = Array.isArray(data) ? data : Array.isArray(data?.data) ? data.data : [];
+        updateStats();
+        updatePropertySummary();
+        buildCountryCarousel();
+        populateFilters();
+        applyFilters();
+      }
+
+      function loadData() {
+        grid.innerHTML = `
+          <div class="state">
+            <div class="icon">🌿</div>
+            <strong>Loading tree planting stories…</strong>
+            <span>Please wait a moment.</span>
+          </div>`;
+        resultCount.textContent = "Loading…";
+
+        if (typeof google !== "undefined" && google.script && google.script.run) {
+          google.script.run
+            .withSuccessHandler(handleData)
+            .withFailureHandler((err) => showLoadError(err?.message || String(err)))
+            .getPublicData();
+          return;
+        }
+
+        fetch(API_URL, { redirect: "follow" })
+          .then((res) => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+          })
+          .then((result) => {
+            if (result && result.success === false) {
+              throw new Error(result.message || "API returned an error.");
+            }
+            handleData(result);
+          })
+          .catch((err) => {
+            showLoadError(`${err.message}. Check the API URL, deployment access, and Google Drive sharing permissions.`);
+          });
+      }
+
+      searchInput.addEventListener("input", () => applyFilters(true));
+      locationFilter.addEventListener("change", () => applyFilters(true));
+      countryFilter.addEventListener("change", () => applyFilters(true));
+      dateFrom.addEventListener("change", () => applyFilters(true));
+      dateTo.addEventListener("change", () => applyFilters(true));
+      sortSelect.addEventListener("change", () => applyFilters(true));
+
+      loadMoreBtn.addEventListener("click", () => {
+        visibleCount += PAGE_SIZE;
+        render();
+      });
+
+      document.getElementById("closeModal").addEventListener("click", closeModal);
+      document.getElementById("modal").addEventListener("click", (e) => {
+        if (e.target.id === "modal") closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      loadData();
+    </script>
+  </body>
+</html>
