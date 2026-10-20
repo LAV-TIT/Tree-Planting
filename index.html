@@ -41,7 +41,6 @@
     <meta name="twitter:description" content="Explore Stay Nature tree planting stories, guest experiences, reforestation, and our commitment to sustainable tourism in Cambodia." />
     <meta name="twitter:image" content="https://www.staynature.com/wp-content/uploads/2026/08/Community-Gathering-By-Stay-Nature-Tree-Planting.jpg" />
     <meta name="twitter:image:alt" content="Stay Nature community tree planting in Cambodia" />
-     
   <script>
     {
       "@context": "https://schema.org",
@@ -890,6 +889,21 @@
         padding: 22px;
       }
 
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .gallery img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 16px;
+        background: #edf3ef;
+        border: 1px solid var(--line);
+      }
+
       .modal-meta {
         margin-top: 20px;
         display: grid;
@@ -1014,7 +1028,7 @@
       .modal-photo-tile img {
         display: block;
         width: 100%;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 4/3;
         object-fit: cover;
         transition: transform .25s ease;
       }
@@ -1046,7 +1060,7 @@
         display: none;
         align-items: center;
         justify-content: center;
-        padding: 10px 70px 10px;
+        padding: 10px 70px 78px;
         background: rgba(0, 0, 0, .96);
         color: #fff;
       }
@@ -1085,26 +1099,76 @@
         background: rgba(255,255,255,.12);
         backdrop-filter: blur(8px);
         cursor: pointer;
+        line-height: 1.3;
       }
       .lightbox-btn:hover { background: rgba(255,255,255,.24); }
       .lightbox-close { top: 16px; right: 18px; width: 44px; height: 44px; font-size: 30px; }
-      .lightbox-prev, .lightbox-next { top: 50%; width: 48px; height: 48px; font-size: 30px; line-height: 1.3; transform: translateY(-50%); }
+      .lightbox-prev, .lightbox-next { top: 50%; width: 48px; height: 48px; font-size: 30px; transform: translateY(-50%); }
       .lightbox-prev { left: 16px; }
       .lightbox-next { right: 16px; }
-      .lightbox-tools {
+      .lightbox-thumbs {
         position: absolute;
+        z-index: 3;
         left: 50%;
-        bottom: 17px;
+        bottom: 12px;
         transform: translateX(-50%);
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
+        width: min(90%, 800px);
+        padding: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-sizing: border-box;
+        background: rgba(20, 20, 20, .78);
+        border: 1px solid rgba(255,255,255,.16);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        scrollbar-width: thin;
+        scrollbar-color: #aab7ad transparent;
+      }
+      .lightbox-thumb {
+        flex: 0 0 64px;
+        width: 64px;
+        height: 48px;
+        padding: 0;
+        overflow: hidden;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        background: #222;
+        opacity: .65;
+        cursor: pointer;
+        transition: opacity .2s, border-color .2s;
+      }
+      .lightbox-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .lightbox-thumb:hover { opacity: 1; }
+      .lightbox-thumb.active { border-color: #dfe8e2; opacity: 1;}
+      .lightbox-tools {
+        position: absolute;
+        bottom: 82px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        padding: 8px 18px;
+        border-radius: 50px;
+        color: #fff;
+        z-index: 10;
+        border: 1px solid rgba(255, 255, 255, 0.15);
       }
       .lightbox-tools .lightbox-btn { position: static; width: 40px; height: 40px; font-size: 22px; }
       .lightbox-counter { min-width: 74px; text-align: center; font-size: 14px; color: rgba(255,255,255,.9); }
       @media (max-width: 650px) {
         .modal-photo-gallery { gap: 8px; }
+        .modal-photo-tile img { height: clamp(125px, 38vw, 220px); }
         .photo-lightbox { padding: 60px 10px 76px; }
+        .lightbox-thumbs { width: 94%; bottom: 8px; gap: 6px; padding: 6px; }
+        .lightbox-thumb { flex-basis: 52px; width: 52px; height: 40px; }
+        .lightbox-tools { bottom: 68px; gap: 6px; }
+        .lightbox-tools .lightbox-btn { width: 34px; height: 34px; }
         .lightbox-prev, .lightbox-next { width: 38px; height: 38px; font-size: 24px; }
         .lightbox-prev { left: 8px; }
         .lightbox-next { right: 8px; }
@@ -1456,6 +1520,21 @@
   </head>
 
   <body>
+      <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photo gallery">
+      <button class="lightbox-btn lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">×</button>
+      <button class="lightbox-btn lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous photo">‹</button>
+      <div class="lightbox-stage" id="lightboxStage">
+        <img class="lightbox-image" id="lightboxImage" alt="Tree planting photo">
+      </div>
+      <div class="lightbox-thumbs" id="lightboxThumbs" aria-label="Choose a photo"></div>
+      <button class="lightbox-btn lightbox-next" id="lightboxNext" type="button" aria-label="Next photo">›</button>
+      <div class="lightbox-tools">
+        <button class="lightbox-btn" id="zoomOut" type="button" aria-label="Zoom out">−</button>
+        <span class="lightbox-counter" id="lightboxCounter">1 / 1</span>
+        <button class="lightbox-btn" id="zoomIn" type="button" aria-label="Zoom in">+</button>
+        <button class="lightbox-btn" id="zoomReset" type="button" aria-label="Reset zoom" title="Reset zoom">⤢</button>
+      </div>
+    </div>
     <header class="hero">
       <div class="hero-inner">
         <div>
@@ -1478,20 +1557,7 @@
         </div>
       </div>
     </header>
- <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photo gallery">
-      <button class="lightbox-btn lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">×</button>
-      <button class="lightbox-btn lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous photo">‹</button>
-      <div class="lightbox-stage" id="lightboxStage">
-        <img class="lightbox-image" id="lightboxImage" alt="Tree planting photo">
-      </div>
-      <button class="lightbox-btn lightbox-next" id="lightboxNext" type="button" aria-label="Next photo">›</button>
-      <div class="lightbox-tools">
-        <button class="lightbox-btn" id="zoomOut" type="button" aria-label="Zoom out">−</button>
-        <span class="lightbox-counter" id="lightboxCounter">1 / 1</span>
-        <button class="lightbox-btn" id="zoomIn" type="button" aria-label="Zoom in">+</button>
-        <button class="lightbox-btn" id="zoomReset" type="button" aria-label="Reset zoom" title="Reset zoom">⤢</button>
-      </div>
-    </div>
+
     <main class="tree_page">
       <section class="stats" aria-label="Tree planting statistics">
         <div class="stat">
@@ -2640,6 +2706,7 @@
     const photoLightbox = document.getElementById("photoLightbox");
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxCounter = document.getElementById("lightboxCounter");
+    const lightboxThumbs = document.getElementById("lightboxThumbs");
     let lightboxPhotos = [];
     let lightboxIndex = 0;
     let lightboxZoom = 1;
@@ -2664,6 +2731,45 @@
       renderLightboxTransform();
     }
 
+    function renderLightboxThumbs() {
+      lightboxThumbs.replaceChildren();
+
+      lightboxPhotos.forEach((photo, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "lightbox-thumb";
+        button.setAttribute("aria-label", `Show photo ${index + 1}`);
+        button.setAttribute("aria-current", "false");
+
+        const img = document.createElement("img");
+        img.src = imageUrl(photo);
+        img.alt = `Thumbnail ${index + 1}`;
+        img.loading = "lazy";
+        button.appendChild(img);
+
+        button.addEventListener("click", () => {
+          lightboxIndex = index;
+          updateLightbox();
+        });
+
+        lightboxThumbs.appendChild(button);
+      });
+
+      updateActiveLightboxThumb();
+    }
+
+    function updateActiveLightboxThumb() {
+      const thumbs = lightboxThumbs.querySelectorAll(".lightbox-thumb");
+      thumbs.forEach((thumb, index) => {
+        const active = index === lightboxIndex;
+        thumb.classList.toggle("active", active);
+        thumb.setAttribute("aria-current", String(active));
+        if (active) {
+          thumb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+      });
+    }
+
     function updateLightbox() {
       if (!lightboxPhotos.length) return;
       lightboxImage.src = imageUrl(lightboxPhotos[lightboxIndex]);
@@ -2672,12 +2778,14 @@
       resetLightboxView();
       document.getElementById("lightboxPrev").style.visibility = lightboxPhotos.length > 1 ? "visible" : "hidden";
       document.getElementById("lightboxNext").style.visibility = lightboxPhotos.length > 1 ? "visible" : "hidden";
+      updateActiveLightboxThumb();
     }
 
     function openLightbox(photos, index = 0) {
       if (!photos || !photos.length) return;
       lightboxPhotos = photos.slice();
       lightboxIndex = Math.max(0, Math.min(index, lightboxPhotos.length - 1));
+      renderLightboxThumbs();
       updateLightbox();
       photoLightbox.classList.add("open");
       photoLightbox.setAttribute("aria-hidden", "false");
