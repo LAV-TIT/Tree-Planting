@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- បន្ថែមត្រង់នេះ ដើម្បីដោះស្រាយ Error 153 -->
-<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>🎵 Music Player</title>
 <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -132,23 +130,6 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ===== Visible YouTube Player ===== */
-    #player-wrapper {
-        position: fixed;
-        bottom: var(--player-height);
-        right: 20px;
-        width: 320px;
-        height: 180px;
-        background: #000;
-        border-radius: 10px 10px 0 0;
-        overflow: hidden;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
-        display: none;
-        z-index: 99;
-        transition: all 0.3s;
-    }
-    #ytPlayer { width: 100%; height: 100%; }
-
     /* ===== Bottom Player ===== */
     .player {
         position: fixed; bottom: 0; left: 0; right: 0;
@@ -221,14 +202,12 @@
         .song-title, .song-artist { max-width: 120px; }
         .player-right { display: none; }
         .album-art { width: 50px; height: 50px; }
-        #player-wrapper { width: 100%; right: 0; border-radius: 0; }
     }
 </style>
 </head>
 <body>
 
 <div class="app">
-    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="logo">
             <span class="logo-icon">🎵</span>
@@ -242,7 +221,6 @@
         </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="main">
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="ស្វែងរកចម្រៀង ឬសិល្បករ..." autocomplete="off">
@@ -257,12 +235,9 @@
     </main>
 </div>
 
-<!-- Visible Video Player -->
-<div id="player-wrapper">
-    <div id="ytPlayer"></div>
-</div>
+<!-- The actual audio player (Hidden) -->
+<audio id="audioPlayer"></audio>
 
-<!-- Bottom Player -->
 <div class="player">
     <div class="player-left">
         <img id="albumArt" class="album-art" src="https://via.placeholder.com/60/1a1a2e/ffffff?text=♪" alt="album art">
@@ -288,7 +263,6 @@
     </div>
 
     <div class="player-right">
-        <button id="toggleVideoBtn" class="control-btn small" title="បង្ហាញ/លាក់វីដេអូ">📺</button>
         <button id="muteBtn" class="control-btn small" title="សំឡេង">🔊</button>
         <input type="range" id="volumeBar" class="volume-bar" min="0" max="100" value="80">
     </div>
@@ -296,29 +270,32 @@
 
 <script>
 // ============================================================
-// 🎵 Music Player Script
+// 🎵 Music Player Script (Piped API Version - Audio Only)
 // ============================================================
 
-// Your API Key
-const API_KEY = 'AIzaSyCAx_B9KguV0hxgpHBWwD8_Na3OkGWGQig';
+// YouTube API Key សម្រាប់ការស្វែងរក
+const API_KEY = 'AIzaSyAe1GT4gBcf4T_TdiFOZBoz3F36Ea-xKdY';
 
-// ===== State =====
-let player;
-let playerReady = false;
+// បញ្ជី Server សម្រាប់ទាញយកសំឡេង (បើមួយដាច់ វានឹងប្តូរទៅមួយផ្សេង)
+const PIPED_INSTANCES = [
+    'https://pipedapi.kavin.rocks',
+    'https://api.piped.private.coffee',
+    'https://pipedapi.adminforge.de'
+];
+
 let songs = [];
 let currentIndex = -1;
 let isPlaying = false;
 let isMuted = false;
-let progressInterval = null;
+let isFetchingAudio = false;
 
-// ===== DOM Elements =====
+const audioPlayer = document.getElementById('audioPlayer');
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const songList = document.getElementById('songList');
 const loading = document.getElementById('loading');
 const sectionTitle = document.getElementById('sectionTitle');
 
-const playerWrapper = document.getElementById('player-wrapper');
 const albumArt = document.getElementById('albumArt');
 const playerTitle = document.getElementById('playerTitle');
 const playerArtist = document.getElementById('playerArtist');
@@ -331,61 +308,10 @@ const currentTimeEl = document.getElementById('currentTime');
 const durationEl = document.getElementById('duration');
 const volumeBar = document.getElementById('volumeBar');
 const muteBtn = document.getElementById('muteBtn');
-const toggleVideoBtn = document.getElementById('toggleVideoBtn');
-
-// ===== Initialize YouTube IFrame API =====
-const tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-document.head.appendChild(tag);
-
-window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player('ytPlayer', {
-        height: '100%',
-        width: '100%',
-        videoId: '',
-        playerVars: {
-            autoplay: 1,
-            controls: 1,
-            modestbranding: 1,
-            rel: 0,
-        },
-        events: {
-            onReady: onPlayerReady,
-            onStateChange: onPlayerStateChange,
-            onError: onPlayerError,
-        },
-    });
-};
-
-function onPlayerReady() {
-    playerReady = true;
-    player.setVolume(80);
-    console.log('✅ YouTube Player រួចរាល់');
-}
-
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        isPlaying = true;
-        playBtn.textContent = '⏸';
-        startProgressUpdate();
-    } else if (event.data === YT.PlayerState.PAUSED) {
-        isPlaying = false;
-        playBtn.textContent = '▶';
-        stopProgressUpdate();
-    } else if (event.data === YT.PlayerState.ENDED) {
-        playNext();
-    }
-}
-
-function onPlayerError(event) {
-    console.warn('Player error:', event.data);
-    setTimeout(playNext, 1000);
-}
 
 // ===== Search Songs =====
 async function searchSongs(query) {
     if (!query.trim()) return;
-
     loading.classList.add('show');
     songList.innerHTML = '';
     sectionTitle.textContent = `លទ្ធផលស្វែងរក: "${query}"`;
@@ -406,7 +332,6 @@ async function searchSongs(query) {
 
         renderSongs();
     } catch (err) {
-        console.error(err);
         sectionTitle.textContent = '⚠️ ស្វែងរកបរាជ័យ: ' + err.message;
     } finally {
         loading.classList.remove('show');
@@ -416,110 +341,124 @@ async function searchSongs(query) {
 // ===== Render Song List =====
 function renderSongs() {
     songList.innerHTML = '';
-
-    if (songs.length === 0) {
-        songList.innerHTML = '<p style="color:#b3b3b3">រកមិនឃើញចម្រៀងទេ</p>';
-        return;
-    }
-
     songs.forEach((song, index) => {
         const card = document.createElement('div');
         card.className = 'song-card';
-        card.dataset.index = index;
-
         card.innerHTML = `
             <img class="song-thumbnail" src="${song.thumbnail}" alt="${song.title}">
             <div class="song-name" title="${song.title}">${song.title}</div>
             <div class="song-channel">${song.channel}</div>
             <div class="play-overlay">▶</div>
         `;
-
         card.addEventListener('click', () => playSong(index));
         songList.appendChild(card);
     });
 }
 
-// ===== Play Song =====
-function playSong(index) {
-    if (!playerReady || index < 0 || index >= songs.length) return;
-
+// ===== Play Song (Fetch Audio) =====
+async function playSong(index) {
+    if (index < 0 || index >= songs.length) return;
+    
     currentIndex = index;
     const song = songs[index];
 
     playerTitle.textContent = song.title;
     playerArtist.textContent = song.channel;
     albumArt.src = song.thumbnail;
-    
-    playerWrapper.style.display = 'block';
 
     document.querySelectorAll('.song-card').forEach((el, i) => {
         el.classList.toggle('active', i === index);
     });
 
-    player.loadVideoById(song.videoId);
-}
+    // បង្ហាញ Loading រង់ចាំទាញយកសំឡេង
+    playerTitle.textContent = "កំពុងទាញយកសំឡេង...";
+    isFetchingAudio = true;
+    playBtn.textContent = '⏳';
 
-// ===== Play / Pause =====
-playBtn.addEventListener('click', () => {
-    if (!playerReady) return;
-
-    if (currentIndex === -1 && songs.length > 0) {
-        playSong(0);
-        return;
+    // សាកល្បងទាញយកពី Piped API
+    for (const instance of PIPED_INSTANCES) {
+        try {
+            const response = await fetch(`${instance}/streams/${song.videoId}`);
+            if (!response.ok) continue;
+            
+            const data = await response.json();
+            if (data.audioStreams && data.audioStreams.length > 0) {
+                // យកតំណសំឡេងដែលមានគុណភាពល្អបំផុត
+                const audioUrl = data.audioStreams[0].url;
+                
+                audioPlayer.src = audioUrl;
+                audioPlayer.play();
+                
+                isFetchingAudio = false;
+                playerTitle.textContent = song.title;
+                return; // បញ្ចប់ការស្វែងរក ព្រោះទាញយកបានហើយ
+            }
+        } catch (error) {
+            console.warn(`Instance ${instance} បរាជ័យ`);
+        }
     }
 
-    if (isPlaying) {
-        player.pauseVideo();
+    // ប្រសិនបើទាញយកមិនបានទេ
+    isFetchingAudio = false;
+    playBtn.textContent = '▶';
+    playerTitle.textContent = "មានបញ្ហាក្នុងការលេងបទនេះ";
+}
+
+// ===== Audio Player Controls =====
+playBtn.addEventListener('click', () => {
+    if (isFetchingAudio) return;
+    if (currentIndex === -1 && songs.length > 0) {
+        playSong(0);
+    } else if (audioPlayer.paused) {
+        audioPlayer.play();
     } else {
-        player.playVideo();
+        audioPlayer.pause();
     }
 });
 
-// ===== Previous / Next =====
 prevBtn.addEventListener('click', () => {
     if (songs.length === 0) return;
-    const newIndex = currentIndex > 0 ? currentIndex - 1 : songs.length - 1;
-    playSong(newIndex);
+    playSong(currentIndex > 0 ? currentIndex - 1 : songs.length - 1);
 });
 
 nextBtn.addEventListener('click', () => {
     if (songs.length === 0) return;
-    const newIndex = currentIndex < songs.length - 1 ? currentIndex + 1 : 0;
-    playSong(newIndex);
+    playSong(currentIndex < songs.length - 1 ? currentIndex + 1 : 0);
 });
 
-function playNext() {
-    if (songs.length === 0) return;
-    const newIndex = (currentIndex + 1) % songs.length;
-    playSong(newIndex);
-}
+audioPlayer.addEventListener('play', () => { isPlaying = true; playBtn.textContent = '⏸'; });
+audioPlayer.addEventListener('pause', () => { isPlaying = false; playBtn.textContent = '▶'; });
+audioPlayer.addEventListener('ended', () => nextBtn.click());
 
-// ===== Progress Bar =====
-function startProgressUpdate() {
-    stopProgressUpdate();
-    progressInterval = setInterval(updateProgress, 500);
-}
+// ធ្វើបច្ចុប្បន្នភាព Progress Bar
+audioPlayer.addEventListener('timeupdate', () => {
+    if (!audioPlayer.duration) return;
+    const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressFill.style.width = percent + '%';
+    currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+    durationEl.textContent = formatTime(audioPlayer.duration);
+});
 
-function stopProgressUpdate() {
-    if (progressInterval) {
-        clearInterval(progressInterval);
-        progressInterval = null;
-    }
-}
+progressBar.addEventListener('click', (e) => {
+    if (!audioPlayer.duration) return;
+    const rect = progressBar.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    audioPlayer.currentTime = percent * audioPlayer.duration;
+});
 
-function updateProgress() {
-    if (!playerReady || !player.getDuration) return;
+// គ្រប់គ្រងសំឡេង
+volumeBar.addEventListener('input', (e) => {
+    audioPlayer.volume = e.target.value / 100;
+    audioPlayer.muted = false;
+    isMuted = false;
+    muteBtn.textContent = '🔊';
+});
 
-    const current = player.getCurrentTime() || 0;
-    const duration = player.getDuration() || 0;
-
-    if (duration > 0) {
-        const percent = (current / duration) * 100;
-        progressFill.style.width = percent + '%';
-        currentTimeEl.textContent = formatTime(current);
-        durationEl.textContent = formatTime(duration);
-    }
-}
+muteBtn.addEventListener('click', () => {
+    audioPlayer.muted = !audioPlayer.muted;
+    isMuted = audioPlayer.muted;
+    muteBtn.textContent = isMuted ? '🔇' : '🔊';
+});
 
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
@@ -527,57 +466,8 @@ function formatTime(seconds) {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
-// ===== Seek =====
-progressBar.addEventListener('click', (e) => {
-    if (!playerReady || !player.getDuration) return;
-
-    const rect = progressBar.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const percent = clickX / rect.width;
-    const duration = player.getDuration();
-
-    player.seekTo(percent * duration, true);
-});
-
-// ===== Volume Control =====
-volumeBar.addEventListener('input', (e) => {
-    if (!playerReady) return;
-    const volume = parseInt(e.target.value);
-    player.setVolume(volume);
-    isMuted = volume === 0;
-    muteBtn.textContent = isMuted ? '🔇' : '🔊';
-});
-
-// ===== Mute Toggle =====
-muteBtn.addEventListener('click', () => {
-    if (!playerReady) return;
-
-    if (isMuted) {
-        player.unMute();
-        player.setVolume(parseInt(volumeBar.value));
-        muteBtn.textContent = '🔊';
-        isMuted = false;
-    } else {
-        player.mute();
-        muteBtn.textContent = '🔇';
-        isMuted = true;
-    }
-});
-
-// ===== Toggle Video Visibility =====
-toggleVideoBtn.addEventListener('click', () => {
-    if (playerWrapper.style.display === 'none') {
-        playerWrapper.style.display = 'block';
-    } else {
-        playerWrapper.style.display = 'none';
-    }
-});
-
-// ===== Search Event Listeners =====
-searchBtn.addEventListener('click', () => {
-    searchSongs(searchInput.value);
-});
-
+// ស្វែងរក
+searchBtn.addEventListener('click', () => searchSongs(searchInput.value));
 searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') searchSongs(searchInput.value);
 });
