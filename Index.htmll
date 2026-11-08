@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lensly — Book Photographers & Videographers</title>
+<style>
+/* ============ BASE ============ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+:root{
+  --bg:#ffffff;
+  --soft:#f7f7f9;
+  --text:#14161a;
+  --muted:#6b7280;
+  --line:#e8e8ec;
+  --accent:#e11d48;
+  --accent-dark:#be123c;
+  --radius:16px;
+  --shadow:0 8px 30px rgba(20,22,26,.08);
+}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{margin:0;letter-spacing:-.02em}
+p{margin:0}
+img{display:block;max-width:100%}
+::selection{background:#fecdd3}
+
+/* ============ BUTTONS ============ */
+.btn{
+  border:1px solid transparent;border-radius:999px;
+  padding:11px 20px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:.18s;white-space:nowrap;
+}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.btn.ghost{background:#fff;border-color:var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:#c9c9d1;background:var(--soft)}
+.btn.sm{padding:8px 14px;font-size:13px}
+.btn.block{width:100%}
+
+/* ============ HEADER ============ */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;gap:24px;height:72px}
+.logo{
+  display:flex;align-items:center;gap:9px;
+  font-weight:800;font-size:20px;letter-spacing:-.03em;
+  color:var(--text);text-decoration:none;
+}
+.logo-mark{
+  width:30px;height:30px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),#f97316);
+  display:grid;place-items:center;color:#fff;font-size:15px;
+}
+.nav{display:flex;gap:24px}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:.15s}
+.nav a:hover{color:var(--text)}
+.header-actions{margin-left:auto;display:flex;gap:10px}
+
+/* ============ HERO ============ */
+.hero{
+  padding:70px 0 48px;
+  background:
+    radial-gradient(900px 420px at 15% -20%, #ffe4e6 0%, transparent 62%),
+    radial-gradient(700px 400px at 92% -10%, #e0e7ff 0%, transparent 58%);
+}
+.hero h1{font-size:clamp(30px,4.6vw,52px);line-height:1.07;margin-bottom:16px}
+.hero-sub{color:var(--muted);font-size:17px;max-width:560px;margin-bottom:30px;line-height:1.55}
+
+.searchbar{
+  display:flex;gap:6px;align-items:stretch;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:8px;box-shadow:var(--shadow);max-width:920px;
+}
+.field{flex:1 1 150px;padding:8px 20px;border-right:1px solid var(--line);min-width:0}
+.field:nth-of-type(3){border-right:none}
+.field label{
+  display:block;font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--muted);margin-bottom:3px;
+}
+.field input{
+  border:none;outline:none;width:100%;font-size:14px;font-family:inherit;
+  color:var(--text);background:transparent;padding:0;
+}
+.search-btn{
+  border:none;background:var(--accent);color:#fff;border-radius:999px;
+  padding:0 28px;font-size:15px;font-weight:700;cursor:pointer;
+  font-family:inherit;transition:.18s;flex:0 0 auto;
+}
+.search-btn:hover{background:var(--accent-dark)}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.chips > span{font-size:13px;color:var(--muted);font-weight:600}
+.chip{
+  border:1px solid var(--line);background:#fff;border-radius:999px;
+  padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;
+  font-family:inherit;color:var(--text);transition:.15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ============ RESULTS ============ */
+.results{padding:36px 0 70px}
+.results-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:16px;flex-wrap:wrap;margin-bottom:22px;
+}
+.results-head h2{font-size:24px}
+.results-head p{color:var(--muted);font-size:14px;margin-top:4px}
+.sort-box{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.sort-box select{
+  font-family:inherit;font-size:14px;padding:9px 14px;border-radius:10px;
+  border:1px solid var(--line);background:#fff;color:var(--text);cursor:pointer;outline:none;
+}
+
+.layout{display:grid;grid-template-columns:262px 1fr;gap:28px;align-items:start}
+
+/* --- filters --- */
+.filters{
+  position:sticky;top:92px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;
+}
+.filters h4{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px}
+.filter-group{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.filter-group:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.check{display:flex;align-items:center;gap:9px;font-size:14px;padding:5px 0;cursor:pointer;color:#33353c}
+.check input{accent-color:var(--accent);width:16px;height:16px;cursor:pointer}
+.radio-row{display:flex;flex-wrap:wrap;gap:8px}
+.radio-pill input{display:none}
+.radio-pill span{
+  display:inline-block;padding:7px 13px;border:1px solid var(--line);
+  border-radius:999px;font-size:13px;cursor:pointer;transition:.15s;color:#33353c;
+}
+.radio-pill input:checked + span{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.range-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer}
+select.mini{
+  width:100%;font-family:inherit;font-size:14px;padding:9px 12px;border-radius:10px;
+  border:1px solid var(--line);background:#fff;outline:none;cursor:pointer;
+}
+
+/* --- cards --- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:20px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.22s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#dcdce3}
+.card-cover{
+  position:relative;aspect-ratio:4/3;background-size:cover;background-position:center;
+  cursor:pointer;transition:.3s;
+}
+.card:hover .card-cover{filter:brightness(.96)}
+.badge{
+  position:absolute;top:12px;left:12px;
+  background:rgba(255,255,255,.95);color:#166534;
+  font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;
+  letter-spacing:.02em;backdrop-filter:blur(4px);
+}
+.heart{
+  position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;
+  border:none;background:rgba(255,255,255,.92);cursor:pointer;font-size:17px;
+  display:grid;place-items:center;color:#33353c;transition:.15s;line-height:1;
+}
+.heart:hover{transform:scale(1.1)}
+.heart.on{color:var(--accent)}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card-head{display:flex;align-items:center;gap:10px}
+.avatar{
+  width:38px;height:38px;border-radius:50%;flex:0 0 auto;
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;
+  letter-spacing:.02em;
+}
+.who{min-width:0;flex:1}
+.who h3{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who p{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.score{font-size:13px;font-weight:700;display:flex;align-items:center;gap:3px;color:#b45309;flex:0 0 auto}
+.score span{color:var(--muted);font-weight:500;font-size:12px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  font-size:11.5px;font-weight:600;background:var(--soft);
+  color:#4b4d57;padding:4px 9px;border-radius:7px;
+}
+.card-foot{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding-top:12px;border-top:1px solid var(--line);
+}
+.price{font-size:14px;color:var(--muted)}
+.price strong{font-size:18px;color:var(--text);font-weight:800;letter-spacing:-.02em}
+.card-btns{display:flex;gap:7px}
+
+.empty{
+  grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--muted);
+  border:1px dashed var(--line);border-radius:var(--radius);background:var(--soft);
+}
+.empty h3{font-size:18px;color:var(--text);margin-bottom:8px}
+
+/* ============ HOW IT WORKS ============ */
+.how{padding:70px 0;background:var(--soft);border-top:1px solid var(--line)}
+.how h2{text-align:center;font-size:28px;margin-bottom:8px}
+.how > .wrap > p{text-align:center;color:var(--muted);margin-bottom:40px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.step{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;transition:.2s;
+}
+.step:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.step .num{
+  width:36px;height:36px;border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),#f97316);color:#fff;
+  font-weight:800;font-size:15px;margin-bottom:14px;
+}
+.step h3{font-size:16px;margin-bottom:7px}
+.step p{font-size:14px;color:var(--muted);line-height:1.55}
+
+/* ============ FOOTER ============ */
+.footer{padding:44px 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.footer p{font-size:13.5px;color:var(--muted)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13.5px;color:var(--muted);text-decoration:none}
+.footer-links a:hover{color:var(--text)}
+
+/* ============ MODALS ============ */
+.overlay{
+  position:fixed;inset:0;z-index:100;padding:20px;
+  background:rgba(15,17,21,.55);backdrop-filter:blur(5px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:.22s;
+}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{
+  background:#fff;border-radius:22px;width:100%;max-width:520px;
+  max-height:92vh;overflow:auto;box-shadow:0 30px 90px rgba(0,0,0,.35);
+  transform:translateY(14px) scale(.98);transition:.22s;
+}
+.overlay.open .modal{transform:none}
+.modal.wide{max-width:740px}
+.modal-head{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:20px 24px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:#fff;z-index:2;border-radius:22px 22px 0 0;
+}
+.modal-head h3{font-size:17px}
+.x-btn{
+  border:none;background:var(--soft);width:34px;height:34px;border-radius:50%;
+  font-size:17px;cursor:pointer;color:#33353c;display:grid;place-items:center;
+  transition:.15s;flex:0 0 auto;
+}
+.x-btn:hover{background:#ececf0}
+.modal-body{padding:22px 24px 26px}
+
+/* booking summary card */
+.summary{
+  display:flex;gap:13px;align-items:center;background:var(--soft);
+  border-radius:14px;padding:13px;margin-bottom:20px;
+}
+.summary .avatar{width:46px;height:46px;font-size:15px}
+.summary h4{font-size:15px}
+.summary p{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:14px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#33353c}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;font-family:inherit;font-size:14px;padding:11px 13px;
+  border:1px solid var(--line);border-radius:11px;outline:none;
+  background:#fff;color:var(--text);transition:.15s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(225,29,72,.1);
+}
+.form-group textarea{resize:vertical;min-height:74px}
+
+.bill{border-top:1px solid var(--line);margin-top:6px;padding-top:14px;margin-bottom:18px}
+.bill-row{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);padding:5px 0}
+.bill-row.total{font-size:16px;font-weight:800;color:var(--text);padding-top:10px;margin-top:6px;border-top:1px solid var(--line)}
+
+/* profile modal */
+.profile-cover{height:190px;background-size:cover;background-position:center;border-radius:0}
+.profile-top{display:flex;gap:16px;align-items:flex-end;padding:0 24px;margin-top:-34px;position:relative}
+.profile-top .avatar{width:78px;height:78px;border:4px solid #fff;font-size:26px;border-radius:50%}
+.profile-meta{flex:1;padding-bottom:6px}
+.profile-meta h2{font-size:21px}
+.profile-meta p{font-size:13.5px;color:var(--muted);margin-top:3px}
+.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.stat{background:var(--soft);border-radius:12px;padding:13px;text-align:center}
+.stat strong{display:block;font-size:16px;font-weight:800}
+.stat span{font-size:12px;color:var(--muted)}
+.portfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.portfolio div{aspect-ratio:1;border-radius:10px;background-size:cover;background-position:center}
+.profile-bio{font-size:14px;line-height:1.65;color:#3f4149;margin-bottom:18px}
+
+/* bookings list */
+.booking-item{
+  display:flex;gap:13px;align-items:center;padding:14px;border:1px solid var(--line);
+  border-radius:14px;margin-bottom:10px;
+}
+.booking-item h4{font-size:14.5px}
+.booking-item p{font-size:12.5px;color:var(--muted);margin-top:3px}
+.booking-item .amt{margin-left:auto;font-weight:800;font-size:15px;color:var(--accent)}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,26px);
+  background:#14161a;color:#fff;font-size:14px;font-weight:500;
+  padding:13px 22px;border-radius:999px;z-index:200;
+  opacity:0;pointer-events:none;transition:.28s;box-shadow:0 12px 34px rgba(0,0,0,.3);
+  max-width:90vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr}
+  .filters{position:static}
+  .nav{display:none}
+  .portfolio{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  .header-actions .btn.ghost{display:none}
+  .hero{padding:44px 0 34px}
+  .searchbar{border-radius:22px;flex-direction:column;gap:0;padding:6px}
+  .field{border-right:none;border-bottom:1px solid var(--line);flex:1 1 auto;padding:11px 16px}
+  .field:nth-of-type(3){border-bottom:none}
+  .search-btn{padding:14px;margin:6px;border-radius:16px}
+  .form-row{grid-template-columns:1fr}
+  .profile-stats{grid-template-columns:1fr 1fr}
+  .portfolio{grid-template-columns:repeat(2,1fr)}
+  .card-btns .btn{padding:8px 11px;font-size:12.5px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#"><span class="logo-mark">◉</span>Lensly</a>
+    <nav class="nav">
+      <a href="#results">Explore</a>
+      <a href="#how">How it works</a>
+      <a href="#" id="navBookings">My bookings</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn ghost" onclick="toast('Creator sign-up is a demo feature 👋')">Become a creator</button>
+      <button class="btn primary" onclick="toast('Sign-in is a demo feature 👋')">Sign in</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Find the perfect photographer<br>or videographer for your moment</h1>
+    <p class="hero-sub">Browse verified creators, compare portfolios and real prices, then book instantly — no back-and-forth emails.</p>
+
+    <form class="searchbar" id="searchForm">
+      <div class="field">
+        <label>Service</label>
+        <input id="qInput" placeholder="Wedding, portrait, product…" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Location</label>
+        <input id="locInput" placeholder="Bali, Paris, New York…" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Date</label>
+        <input id="dateInput" type="date">
+      </div>
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+
+    <div class="chips">
+      <span>Popular:</span>
+      <button class="chip" data-chip="Wedding">Wedding</button>
+      <button class="chip" data-chip="Portrait">Portrait</button>
+      <button class="chip" data-chip="Event">Event</button>
+      <button class="chip" data-chip="Product">Product</button>
+      <button class="chip" data-chip="Music Video">Music video</button>
+      <button class="chip" data-chip="Travel">Travel</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="results-head">
+      <div>
+        <h2>Available creators</h2>
+        <p id="resultCount">Loading…</p>
+      </div>
+      <div class="sort-box">
+        <span>Sort by</span>
+        <select id="sortSelect">
+          <option value="recommended">Recommended</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="rating">Top rated</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="layout">
+      <!-- FILTERS -->
+      <aside class="filters">
+        <div class="filter-group">
+          <h4>Role</h4>
+          <div class="radio-row" id="typeFilters">
+            <label class="radio-pill"><input type="radio" name="role" value="all" checked><span>All</span></label>
+            <label class="radio-pill"><input type="radio" name="role" value="photographer"><span>Photo</span></label>
+            <label class="radio-pill"><input type="radio" name="role" value="videographer"><span>Video</span></label>
+            <label class="radio-pill"><input type="radio" name="role" value="both"><span>Both</span></label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Specialty</h4>
+          <div id="catFilters"></div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Max hourly rate</h4>
+          <div class="range-row"><span>$50</span><span id="priceLabel">$600</span></div>
+          <input type="range" id="priceRange" min="50" max="600" step="10" value="600">
+        </div>
+
+        <div class="filter-group">
+          <h4>Minimum rating</h4>
+          <select class="mini" id="ratingSelect">
+            <option value="0">Any rating</option>
+            <option value="4.5">4.5+</option>
+            <option value="4.7">4.7+</option>
+            <option value="4.9">4.9+</option>
+          </select>
+        </div>
+
+        <button class="btn ghost block sm" id="clearBtn">Clear all filters</button>
+      </aside>
+
+      <!-- GRID -->
+      <div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>How Lensly works</h2>
+    <p>Three steps between you and great photos.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Search & compare</h3>
+        <p>Filter by specialty, location, rating and hourly rate. Every profile shows real portfolios and transparent pricing.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Book instantly</h3>
+        <p>Pick your date, start time and how many hours you need. The total price is calculated before you confirm.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Create together</h3>
+        <p>Your creator confirms within 24 hours and arrives ready to shoot. Payment is released after the session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="logo" href="#"><span class="logo-mark">◉</span>Lensly</a>
+    <p>© <span id="year"></span> Lensly — demo marketplace for photographers & videographers.</p>
+    <div class="footer-links">
+      <a href="#results">Explore</a>
+      <a href="#how">How it works</a>
+      <a href="#" onclick="toast('Demo link');return false;">Support</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MODALS ================= -->
+<div class="overlay" id="bookingOverlay">
+  <div class="modal" id="bookingModal"></div>
+</div>
+
+<div class="overlay" id="profileOverlay">
+  <div class="modal wide" id="profileModal"></div>
+</div>
+
+<div class="overlay" id="bookingsOverlay">
+  <div class="modal" id="bookingsModal"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   1. DATA
+   ============================================================ */
+const GRADS = [
+  'linear-gradient(135deg,#6366f1,#ec4899)',
+  'linear-gradient(135deg,#f59e0b,#ef4444)',
+  'linear-gradient(135deg,#10b981,#0ea5e9)',
+  'linear-gradient(135deg,#8b5cf6,#22d3ee)',
+  'linear-gradient(135deg,#f43f5e,#f97316)',
+  'linear-gradient(135deg,#0ea5e9,#6366f1)'
+];
+
+const CREATORS = [
+  { id:'c1', name:'Alex Rivera', role:'Photographer', types:['photographer'],
+    cats:['Wedding','Portrait'], location:'Bali, Indonesia', price:180, rating:4.9, reviews:214,
+    verified:true, response:'1 hour', delivery:'7 days', languages:'English, Indonesian',
+    bio:'I chase golden-hour light on the beaches of Bali. Ten years shooting intimate weddings and editorial portraits, with a warm, film-inspired colour grade.',
+    cover:'https://picsum.photos/seed/lensly1/800/600' },
+
+  { id:'c2', name:'Maya Chen', role:'Videographer', types:['videographer'],
+    cats:['Wedding','Music Video'], location:'Los Angeles, USA', price:220, rating:4.8, reviews:176,
+    verified:true, response:'2 hours', delivery:'10 days', languages:'English, Mandarin',
+    bio:'Cinematic storyteller with a background in music videos. I shoot on Sony FX3 and deliver colour-graded 4K films with licensed music.',
+    cover:'https://picsum.photos/seed/lensly2/800/600' },
+
+  { id:'c3', name:"Liam O'Connor", role:'Photographer', types:['photographer'],
+    cats:['Product','Fashion'], location:'Dublin, Ireland', price:150, rating:4.7, reviews:98,
+    verified:true, response:'4 hours', delivery:'5 days', languages:'English',
+    bio:'E-commerce and lookbook specialist. Studio lighting, clean cut-outs and fast turnarounds for brands that need to ship product pages quickly.',
+    cover:'https://picsum.photos/seed/lensly3/800/600' },
+
+  { id:'c4', name:'Sofia Rossi', role:'Photo & Video', types:['photographer','videographer','both'],
+    cats:['Wedding','Event'], location:'Rome, Italy', price:260, rating:5.0, reviews:312,
+    verified:true, response:'30 min', delivery:'14 days', languages:'Italian, English, Spanish',
+    bio:'Full wedding coverage — two shooters, photo and film, from the morning preparations to the last dance. Documentary style, no awkward posing.',
+    cover:'https://picsum.photos/seed/lensly4/800/600' },
+
+  { id:'c5', name:'Noah Kim', role:'Videographer', types:['videographer'],
+    cats:['Corporate','Event'], location:'Seoul, South Korea', price:190, rating:4.6, reviews:87,
+    verified:false, response:'6 hours', delivery:'12 days', languages:'Korean, English',
+    bio:'Corporate films, conference recaps and interviews. I handle the full pipeline from storyboard to subtitled delivery.',
+    cover:'https://picsum.photos/seed/lensly5/800/600' },
+
+  { id:'c6', name:'Amara Okafor', role:'Photographer', types:['photographer'],
+    cats:['Portrait','Fashion'], location:'Lagos, Nigeria', price:120, rating:4.9, reviews:143,
+    verified:true, response:'1 hour', delivery:'4 days', languages:'English, Yoruba',
+    bio:'Bold colour, deep contrast, real skin. I specialise in editorial portraiture and creative direction for emerging fashion labels.',
+    cover:'https://picsum.photos/seed/lensly6/800/600' },
+
+  { id:'c7', name:'Ethan Brooks', role:'Photo & Video', types:['photographer','videographer','both'],
+    cats:['Real Estate','Travel'], location:'Austin, USA', price:165, rating:4.8, reviews:121,
+    verified:true, response:'2 hours', delivery:'3 days', languages:'English',
+    bio:'Architectural and real-estate media: twilight exteriors, drone aerials and walkthrough video that help listings sell faster.',
+    cover:'https://picsum.photos/seed/lensly7/800/600' },
+
+  { id:'c8', name:'Yuki Tanaka', role:'Photographer', types:['photographer'],
+    cats:['Travel','Portrait'], location:'Tokyo, Japan', price:200, rating:4.9, reviews:265,
+    verified:true, response:'1 hour', delivery:'6 days', languages:'Japanese, English',
+    bio:'Street and travel photography in Tokyo, Kyoto and Osaka. I know the quiet alleys that tourists never find and the best blue-hour rooftops.',
+    cover:'https://picsum.photos/seed/lensly8/800/600' },
+
+  { id:'c9', name:'Isabella Cruz', role:'Videographer', types:['videographer'],
+    cats:['Music Video','Fashion'], location:'Mexico City, Mexico', price:210, rating:4.7, reviews:134,
+    verified:false, response:'3 hours', delivery:'9 days', languages:'Spanish, English',
+    bio:'Music videos and fashion films with a gritty, analog feel. Super 16 rentals, practical lighting and a small crew that moves fast.',
+    cover:'https://picsum.photos/seed/lensly9/800/600' },
+
+  { id:'c10', name:'David Mensah', role:'Photographer', types:['photographer'],
+    cats:['Event','Corporate'], location:'Accra, Ghana', price:110, rating:4.6, reviews:76,
+    verified:false, response:'5 hours', delivery:'5 days', languages:'English, Twi',
+    bio:'Conferences, launches and team portraits. Reliable, discreet and fast — galleries delivered within a week of the event.',
+    cover:'https://picsum.photos/seed/lensly10/800/600' },
+
+  { id:'c11', name:'Chloé Dubois', role:'Photo & Video', types:['photographer','videographer','both'],
+    cats:['Wedding','Newborn'], location:'Paris, France', price:280, rating:5.0, reviews:198,
+    verified:true, response:'45 min', delivery:'14 days', languages:'French, English',
+    bio:'Soft, timeless imagery for weddings and newborn sessions. Natural light in Paris apartments and quiet moments in the Jardin du Luxembourg.',
+    cover:'https://picsum.photos/seed/lensly11/800/600' },
+
+  { id:'c12', name:'Omar Haddad', role:'Videographer', types:['videographer'],
+    cats:['Corporate','Travel'], location:'Dubai, UAE', price:240, rating:4.8, reviews:156,
+    verified:true, response:'2 hours', delivery:'8 days', languages:'Arabic, English',
+    bio:'Aerial and commercial video across the Gulf. Licensed drone pilot, comfortable in heat, sand and tight production schedules.',
+    cover:'https://picsum.photos/seed/lensly12/800/600' }
+];
+
+/* ============================================================
+   2. STATE + HELPERS
+   ============================================================ */
+const state = {
+  q:'', loc:'', date:'',
+  type:'all',
+  cats:new Set(),
+  maxPrice:600,
+  minRating:0,
+  sort:'recommended'
+};
+
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const grad = i => GRADS[i % GRADS.length];
+const initials = n => n.split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase();
+const money = n => '$' + Math.round(n).toLocaleString('en-US');
+
+let toastTimer;
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* saved creators */
+function getSaved(){ try { return JSON.parse(localStorage.getItem('lensly_saved')) || []; } catch(e){ return []; } }
+function setSaved(a){ localStorage.setItem('lensly_saved', JSON.stringify(a)); }
+
+/* bookings */
+function getBookings(){ try { return JSON.parse(localStorage.getItem('lensly_bookings')) || []; } catch(e){ return []; } }
+function setBookings(a){ localStorage.setItem('lensly_bookings', JSON.stringify(a)); }
+
+/* ============================================================
+   3. FILTER SIDEBAR BUILD
+   ============================================================ */
+function buildFilters(){
+  const cats = [...new Set(CREATORS.flatMap(c => c.cats))].sort();
+  $('#catFilters').innerHTML = cats.map(c => `
+    <label class="check">
+      <input type="checkbox" value="${c}">
+      <span>${c}</span>
+    </label>`).join('');
+
+  $('#catFilters').addEventListener('change', e => {
+    if(e.target.type !== 'checkbox') return;
+    e.target.checked ? state.cats.add(e.target.value) : state.cats.delete(e.target.value);
+    render();
+  });
+
+  $('#typeFilters').addEventListener('change', e => {
+    state.type = e.target.value;
+    render();
+  });
+
+  $('#priceRange').addEventListener('input', e => {
+    state.maxPrice = +e.target.value;
+    $('#priceLabel').textContent = '$' + e.target.value;
+    render();
+  });
+
+  $('#ratingSelect').addEventListener('change', e => {
+    state.minRating = parseFloat(e.target.value);
+    render();
+  });
+
+  $('#sortSelect').addEventListener('change', e => {
+    state.sort = e.target.value;
+    render();
+  });
+
+  $('#clearBtn').addEventListener('click', () => {
+    state.q = ''; state.loc = ''; state.date = '';
+    state.type = 'all'; state.cats.clear();
+    state.maxPrice = 600; state.minRating = 0; state.sort = 'recommended';
+
+    $('#qInput').value = ''; $('#locInput').value = ''; $('#dateInput').value = '';
+    $('#priceRange').value = 600; $('#priceLabel').textContent = '$600';
+    $('#ratingSelect').value = '0'; $('#sortSelect').value = 'recommended';
+    $$('#catFilters input').forEach(i => i.checked = false);
+    $$('#typeFilters input')[0].checked = true;
+
+    render();
+    toast('Filters cleared');
+  });
+}
+
+/* ============================================================
+   4. FILTER + RENDER
+   ============================================================ */
+function filteredList(){
+  const q = state.q.toLowerCase().trim();
+  const loc = state.loc.toLowerCase().trim();
+
+  let list = CREATORS.filter(c => {
+    if(state.type !== 'all' && !c.types.includes(state.type)) return false;
+    if(state.cats.size && !c.cats.some(x => state.cats.has(x))) return false;
+    if(c.price > state.maxPrice) return false;
+    if(c.rating < state.minRating) return false;
+
+    if(q){
+      const hay = (c.name + ' ' + c.role + ' ' + c.cats.join(' ') + ' ' + c.bio + ' ' + c.location).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    if(loc && !c.location.toLowerCase().includes(loc)) return false;
+    return true;
+  });
+
+  switch(state.sort){
+    case 'price-asc':  list.sort((a,b) => a.price - b.price); break;
+    case 'price-desc': list.sort((a,b) => b.price - a.price); break;
+    case 'rating':     list.sort((a,b) => b.rating - a.rating); break;
+    default:           list.sort((a,b) => (b.verified - a.verified) || (b.rating - a.rating));
+  }
+  return list;
+}
+
+function cardHTML(c, i){
+  const g = grad(i);
+  const saved = getSaved().includes(c.id);
+  return `
+  <article class="card">
+    <div class="card-cover" data-profile="${c.id}"
+         style="background-image:url('${c.cover}'),${g}">
+      ${c.verified ? '<span class="badge">✓ Verified</span>' : ''}
+      <button class="heart ${saved ? 'on' : ''}" data-save="${c.id}"
+              aria-label="Save creator">${saved ? '♥' : '♡'}</button>
+    </div>
+    <div class="card-body">
+      <div class="card-head">
+        <div class="avatar" style="background:${g}">${initials(c.name)}</div>
+        <div class="who">
+          <h3>${c.name}</h3>
+          <p>${c.role} · ${c.location}</p>
+        </div>
+        <div class="score">★ ${c.rating.toFixed(1)}<span>(${c.reviews})</span></div>
+      </div>
+      <div class="tags">${c.cats.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="card-foot">
+        <div class="price"><strong>${money(c.price)}</strong> /hr</div>
+        <div class="card-btns">
+          <button class="btn ghost sm" data-profile="${c.id}">Profile</button>
+          <button class="btn primary sm" data-book="${c.id}">Book</button>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+
+function render(){
+  const list = filteredList();
+  const grid = $('#grid');
+
+  $('#resultCount').textContent = list.length
+    ? `${list.length} creator${list.length > 1 ? 's' : ''} available${state.loc ? ' in ' + state.loc : ''}`
+    : 'No creators match your search';
+
+  if(!list.length){
+    grid.innerHTML = `
+      <div class="empty">
+        <h3>Nothing here yet</h3>
+        <p>Try widening your price range or clearing a filter.</p>
+      </div>`;
+    return;
+  }
+  grid.innerHTML = list.map(cardHTML).join('');
+}
+
+/* ============================================================
+   5. CARD INTERACTIONS
+   ============================================================ */
+$('#grid').addEventListener('click', e => {
+  const saveBtn = e.target.closest('[data-save]');
+  if(saveBtn){
+    const id = saveBtn.dataset.save;
+    let saved = getSaved();
+    if(saved.includes(id)){
+      saved = saved.filter(x => x !== id);
+      saveBtn.classList.remove('on');
+      saveBtn.textContent = '♡';
+      toast('Removed from saved');
+    } else {
+      saved.push(id);
+      saveBtn.classList.add('on');
+      saveBtn.textContent = '♥';
+      toast('Saved to your list ♥');
+    }
+    setSaved(saved);
+    return;
+  }
+
+  const bookBtn = e.target.closest('[data-book]');
+  if(bookBtn){ openBooking(bookBtn.dataset.book); return; }
+
+  const profBtn = e.target.closest('[data-profile]');
+  if(profBtn){ openProfile(profBtn.dataset.profile); return; }
+});
+
+/* ============================================================
+   6. BOOKING MODAL
+   ============================================================ */
+let bookingCreator = null;
+
+function openBooking(id){
+  const c = CREATORS.find(x => x.id === id);
+  if(!c) return;
+  bookingCreator = c;
+
+  const today = new Date().toISOString().split('T')[0];
+  const preselect = state.date || today;
+  const g = grad(CREATORS.indexOf(c));
+
+  $('#bookingModal').innerHTML = `
+    <div class="modal-head">
+      <h3>Book a session</h3>
+      <button class="x-btn" data-close>✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="summary">
+        <div class="avatar" style="background:${g}">${initials(c.name)}</div>
+        <div>
+          <h4>${c.name}</h4>
+          <p>${c.role} · ${c.location} · ${money(c.price)}/hr</p>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="bkDate" min="${today}" value="${preselect}">
+        </div>
+        <div class="form-group">
+          <label>Start time</label>
+          <input type="time" id="bkTime" value="10:00">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Duration</label>
+          <select id="bkHours">
+            ${[1,2,3,4,5,6,8].map(h => `<option value="${h}" ${h===2?'selected':''}>${h} hour${h>1?'s':''}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Session type</label>
+          <select id="bkType">
+            ${c.cats.map(t => `<option>${t}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Notes for ${c.name.split(' ')[0]} (optional)</label>
+        <textarea id="bkNotes" placeholder="Location ideas, mood, number of people, deliverables…"></textarea>
+      </div>
+
+      <div class="bill">
+        <div class="bill-row"><span>Hourly rate</span><span>${money(c.price)}</span></div>
+        <div class="bill-row"><span>Hours</span><span id="bkHoursLabel">2</span></div>
+        <div class="bill-row"><span>Service fee (5%)</span><span id="bkFee">${money(c.price * 2 * 0.05)}</span></div>
+        <div class="bill-row total"><span>Total</span><span id="bkTotal">${money(c.price * 2 * 1.05)}</span></div>
+      </div>
+
+      <button class="btn primary block" id="bkConfirm">Confirm booking</button>
+    </div>`;
+
+  $('#bookingOverlay').classList.add('open');
+
+  const hoursEl = $('#bkHours');
+  const updateBill = () => {
+    const h = +hoursEl.value;
+    const sub = c.price * h;
+    const fee = sub * 0.05;
+    $('#bkHoursLabel').textContent = h;
+    $('#bkFee').textContent = money(fee);
+    $('#bkTotal').textContent = money(sub + fee);
+  };
+  hoursEl.addEventListener('change', updateBill);
+  updateBill();
+
+  $('#bkConfirm').addEventListener('click', () => {
+    const date = $('#bkDate').value;
+    const time = $('#bkTime').value || '10:00';
+    const hours = +hoursEl.value;
+    const type = $('#bkType').value;
+
+    if(!date){ toast('Please choose a date'); return; }
+
+    const sub = c.price * hours;
+    const total = Math.round(sub * 1.05);
+
+    const bookings = getBookings();
+    bookings.unshift({
+      id: 'b' + Date.now(),
+      creatorId: c.id,
+      creatorName: c.name,
+      role: c.role,
+      location: c.location,
+      date, time, hours, type,
+      total,
+      notes: $('#bkNotes').value.trim()
+    });
+    setBookings(bookings);
+
+    $('#bookingOverlay').classList.remove('open');
+    toast(`Booked! ${c.name.split(' ')[0]} will confirm shortly 🎉`);
+  });
+}
+
+/* ============================================================
+   7. PROFILE MODAL
+   ============================================================ */
+function openProfile(id){
+  const c = CREATORS.find(x => x.id === id);
+  if(!c) return;
+  const idx = CREATORS.indexOf(c);
+  const g = grad(idx);
+
+  const shots = [1,2,3,4].map(n =>
+    `<div style="background-image:url('https://picsum.photos/seed/${c.id}-p${n}/400/400'),${g}"></div>`
+  ).join('');
+
+  $('#profileModal').innerHTML = `
+    <div style="position:relative">
+      <div class="profile-cover" style="background-image:url('${c.cover}'),${g}"></div>
+      <button class="x-btn" data-close
+        style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.92)">✕</button>
+    </div>
+
+    <div class="profile-top">
+      <div class="avatar" style="background:${g}">${initials(c.name)}</div>
+      <div class="profile-meta">
+        <h2>${c.name} ${c.verified ? '<span style="font-size:13px;color:#166534">✓</span>' : ''}</h2>
+        <p>${c.role} · ${c.location}</p>
+      </div>
+      <div style="padding-bottom:8px;text-align:right">
+        <div class="score" style="justify-content:flex-end">★ ${c.rating.toFixed(1)}<span>(${c.reviews} reviews)</span></div>
+        <div style="font-size:14px;color:var(--muted);margin-top:4px"><strong style="font-size:18px;color:var(--text)">${money(c.price)}</strong> /hr</div>
+      </div>
+    </div>
+
+    <div class="modal-body" style="padding-top:18px">
+      <div class="tags" style="margin-bottom:18px">
+        ${c.cats.map(t => `<span class="tag">${t}</span>`).join('')}
+      </div>
+
+      <p class="profile-bio">${c.bio}</p>
+
+      <div class="profile-stats">
+        <div class="stat"><strong>${c.response}</strong><span>Response time</span></div>
+        <div class="stat"><strong>${c.delivery}</strong><span>Delivery</span></div>
+        <div class="stat"><strong>${c.reviews}</strong><span>Sessions done</span></div>
+      </div>
+
+      <h4 style="font-size:14px;margin-bottom:4px">Languages</h4>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px">${c.languages}</p>
+
+      <h4 style="font-size:14px;margin-bottom:10px">Portfolio</h4>
+      <div class="portfolio">${shots}</div>
+
+      <div style="display:flex;gap:10px;margin-top:22px">
+        <button class="btn ghost" id="pfSave" style="flex:0 0 auto">${getSaved().includes(c.id) ? '♥ Saved' : '♡ Save'}</button>
+        <button class="btn primary" id="pfBook" style="flex:1">Book ${c.name.split(' ')[0]} · ${money(c.price)}/hr</button>
+      </div>
+    </div>`;
+
+  $('#profileOverlay').classList.add('open');
+
+  $('#pfBook').addEventListener('click', () => {
+    $('#profileOverlay').classList.remove('open');
+    setTimeout(() => openBooking(c.id), 180);
+  });
+
+  $('#pfSave').addEventListener('click', () => {
+    let saved = getSaved();
+    if(saved.includes(c.id)){
+      saved = saved.filter(x => x !== c.id);
+      toast('Removed from saved');
+    } else {
+      saved.push(c.id);
+      toast('Saved to your list ♥');
+    }
+    setSaved(saved);
+    render();
+    $('#pfSave').textContent = saved.includes(c.id) ? '♥ Saved' : '♡ Save';
+  });
+}
+
+/* ============================================================
+   8. MY BOOKINGS MODAL
+   ============================================================ */
+function openBookings(){
+  const list = getBookings();
+  $('#bookingsModal').innerHTML = `
+    <div class="modal-head">
+      <h3>My bookings</h3>
+      <button class="x-btn" data-close>✕</button>
+    </div>
+    <div class="modal-body">
+      ${list.length ? list.map(b => `
+        <div class="booking-item">
+          <div class="avatar" style="background:${grad(0)}">${initials(b.creatorName)}</div>
+          <div>
+            <h4>${b.creatorName}</h4>
+            <p>${b.type} · ${b.date} at ${b.time} · ${b.hours}h</p>
+          </div>
+          <div class="amt">${money(b.total)}</div>
+        </div>`).join('')
+      : `<div class="empty" style="border:none;background:var(--soft)">
+           <h3>No bookings yet</h3>
+           <p>Find a creator and book your first session.</p>
+         </div>`}
+    </div>`;
+  $('#bookingsOverlay').classList.add('open');
+}
+
+/* ============================================================
+   9. GLOBAL EVENTS
+   ============================================================ */
+/* close buttons + backdrop clicks */
+document.addEventListener('click', e => {
+  if(e.target.closest('[data-close]')){
+    e.target.closest('.overlay').classList.remove('open');
+  }
+});
+$$('.overlay').forEach(ov => {
+  ov.addEventListener('click', e => { if(e.target === ov) ov.classList.remove('open'); });
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') $$('.overlay.open').forEach(o => o.classList.remove('open'));
+});
+
+/* search form */
+$('#searchForm').addEventListener('submit', e => {
+  e.preventDefault();
+  state.q = $('#qInput').value;
+  state.loc = $('#locInput').value;
+  state.date = $('#dateInput').value;
+  render();
+  document.getElementById('results').scrollIntoView({ behavior:'smooth', block:'start' });
+});
+
+/* quick chips */
+$$('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    $('#qInput').value = chip.dataset.chip;
+    state.q = chip.dataset.chip;
+    render();
+    document.getElementById('results').scrollIntoView({ behavior:'smooth' });
+  });
+});
+
+/* header bookings link */
+$('#navBookings').addEventListener('click', e => {
+  e.preventDefault();
+  openBookings();
+});
+
+/* ============================================================
+   10. INIT
+   ============================================================ */
+$('#year').textContent = new Date().getFullYear();
+buildFilters();
+render();
+</script>
+</body>
+</html>
